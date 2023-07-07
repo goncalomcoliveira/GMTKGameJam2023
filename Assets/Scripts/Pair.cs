@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Pair : MonoBehaviour
 {
-    public int x;
-    public int y;
+    public float x;
+    public float y;
+
+    public Pair(float x, float y)
+    {
+        this.x = x;
+        this.y = y;
+    }
 }
