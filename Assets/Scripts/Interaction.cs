@@ -15,4 +15,6 @@ public abstract class Interaction
         
         movement.SetPath(path);
     }
+
+    public abstract void Finish();
 }

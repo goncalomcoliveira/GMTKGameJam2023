@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 {
     public string name;
     public List<Action> actions = new List<Action>();
-    public List<Warning> warningQueue = new List<Warning>();
+    public PriorityQueue<Warning> warningQueue = new PriorityQueue<Warning>();
     //public List<Skill> skills;
     public Room room;
     public CharacterMovement movement;
@@ -15,8 +15,6 @@ public class Character : MonoBehaviour
     private bool busy = false;
     private int time = 0;
     private Interaction interrupted;
-
-    private bool delete = true;
 
     // Start is called before the first frame update
     void Start()
@@ -52,9 +50,10 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        executing.Finish();
         busy = false;
         executing = null;
-        movement.local = false;
+        movement.local = false;       
     }
 
     /*
@@ -77,8 +76,7 @@ public class Character : MonoBehaviour
                 return;
             }
 
-            executing = warningQueue[0];
-            warningQueue.RemoveAt(0);
+            executing = warningQueue.Dequeue();
         }
         else if (interrupted is null)
         {
@@ -100,7 +98,7 @@ public class Character : MonoBehaviour
         busy = false;
 
         //Se passar na traigem
-        warningQueue.Add(warning);
+        warningQueue.Enqueue(warning);
         Execute();
         //------------------
     }
