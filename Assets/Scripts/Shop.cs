@@ -11,7 +11,7 @@ public class Shop : MonoBehaviour
     private int money;
 
     public GameObject panel;
-    public Furniture[] FurnitureList;
+    public GameObject[] FurnitureList;
 
     public Image Sprite;
     public TMP_Text priceText;
@@ -25,6 +25,8 @@ public class Shop : MonoBehaviour
     private int cont;
     private int poscont;
     private int precont;
+
+    private GameObject inBuildFurniture;
 
     public void Start()
     {
@@ -82,23 +84,28 @@ public class Shop : MonoBehaviour
     }
     public void Show()
     {
-        preSprite.sprite = FurnitureList[precont].LeftSprite;
-        prepriceText.text = FurnitureList[precont].Price.ToString();
+        preSprite.sprite = FurnitureList[precont].GetComponent<SpriteRenderer>().sprite;
+        prepriceText.text = FurnitureList[precont].GetComponent<Furniture>().Price.ToString();
 
-        Sprite.sprite = FurnitureList[cont].LeftSprite;
-        priceText.text = FurnitureList[cont].Price.ToString();
+        Sprite.sprite = FurnitureList[cont].GetComponent<SpriteRenderer>().sprite;
+        priceText.text = FurnitureList[cont].GetComponent<Furniture>().Price.ToString();
 
-        posSprite.sprite = FurnitureList[poscont].LeftSprite;
-        pospriceText.text = FurnitureList[poscont].Price.ToString();
+        posSprite.sprite = FurnitureList[poscont].GetComponent<SpriteRenderer>().sprite;
+        pospriceText.text = FurnitureList[poscont].GetComponent<Furniture>().Price.ToString();
     }
     public void Buy()
     {
         money = MoneyManager.money;
-        if(money >= FurnitureList[cont].Price)
+        if(money >= FurnitureList[cont].GetComponent<Furniture>().Price)
         {
-            MoneyManager.Subtract(FurnitureList[cont].Price);
+            inBuildFurniture = Instantiate(FurnitureList[cont]);
+            MoneyManager.Subtract(FurnitureList[cont].GetComponent<Furniture>().Price);
             Close();
             room.BuildModeOn();
         }
+    }
+    public GameObject GetInBuildFurniture()
+    {
+        return inBuildFurniture;
     }
 }

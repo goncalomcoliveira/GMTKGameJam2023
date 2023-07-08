@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class Action : Interaction
 {
     public string name;
@@ -13,12 +14,5 @@ public class Action : Interaction
         int time = Random.Range(minTime, maxTime);
         Debug.Log("Executing action: " + name + " for " + time + " seconds");
         return time;
-    }
-
-    public override Position Move()
-    {
-        //Walk to coordinates
-
-        return position;
     }
 }

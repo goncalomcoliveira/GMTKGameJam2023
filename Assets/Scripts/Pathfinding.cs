@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -28,7 +29,7 @@ public class Pathfinding
         }
     }
 
-    public static void Search(Position init, Position end, Room room)
+    public static List<Position> Search(Position init, Position end, Room room)
     {
         Node first = new Node(init, null, 0);
         Pathfinding.end = end;
@@ -38,12 +39,14 @@ public class Pathfinding
 
         Node node = AStarAlgorithm(first);
 
-        Debug.Log("Path:");
+        Stack<Position> stack = new Stack<Position>();
         while (node != null)
         {
-            Debug.Log("? " + node.position);
+            stack.Push(node.position);
             node = node.parent;
         }
+
+        return stack.ToList();
     }
 
     private static Node AStarAlgorithm(Node init)
@@ -57,11 +60,9 @@ public class Pathfinding
             Node cur = minHeap.Dequeue();
 
             if (cur.position.Equals(end)) return cur;
-
             if (room.getMatrix()[cur.position.x, cur.position.y] is not EmptySpace || Contains(visited, cur)) continue;
 
             visited.Add(cur);
-            Debug.Log(cur.position + " " + (cur.parent is null ? "null" : cur.parent.position) + " " + cur.cost);
 
             if (cur.position.x > 0)
             {
