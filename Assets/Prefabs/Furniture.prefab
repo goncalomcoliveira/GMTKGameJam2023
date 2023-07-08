@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8680975962243427254}
   - component: {fileID: 4530956349018900480}
-  - component: {fileID: 691215931404434186}
+  - component: {fileID: 6168417566876084959}
   m_Layer: 0
   m_Name: Furniture
   m_TagString: Untagged
@@ -73,20 +73,20 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &691215931404434186
-BoxCollider2D:
+--- !u!60 &6168417566876084959
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -101,13 +101,22 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
+    pivot: {x: 0.5, y: 0.16666667}
+    oldSize: {x: 2, y: 3}
+    newSize: {x: 3, y: 3.5}
+    adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.3108515, y: 0.3005638}
+      - {x: -0.3369577, y: 0.28770924}
+      - {x: -0.6156426, y: 0.1104126}
+      - {x: -0.7262659, y: 0.06365061}
+      - {x: -0.2541816, y: -0.253345}
+      - {x: 0.017755702, y: -0.34722996}
+      - {x: 0.7674953, y: 0.03882599}
+      - {x: 0.044849314, y: 0.42261505}
+      - {x: -0.2995603, y: 0.29319572}
+      - {x: -0.30874342, y: 0.28566456}
