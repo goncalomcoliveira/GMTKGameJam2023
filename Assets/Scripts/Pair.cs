@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 
 [Serializable]
 public class Pair
@@ -10,19 +11,5 @@ public class Pair
     {
         this.x = x;
         this.y = y;
-    }
-
-    public override bool Equals(System.Object obj)
-    {
-        //Check for null and compare run-time types.
-        if ((obj == null) || !this.GetType().Equals(obj.GetType()))
-        {
-            return false;
-        }
-        else
-        {
-            Pair p = (Pair)obj;
-            return (x == p.x) && (y == p.y);
-        }
     }
 }

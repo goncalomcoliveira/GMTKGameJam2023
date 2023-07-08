@@ -15,10 +15,10 @@ public class Action : Interaction
         return time;
     }
 
-    public override Pair Move()
+    public override Position Move()
     {
         //Walk to coordinates
 
-        return coordinates;
+        return position;
     }
 }

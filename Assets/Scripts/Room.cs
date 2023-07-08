@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
+    private Furniture[,] Matrix;
+    private Pair[] CoorMatrix;
     public int TILENUM;
     public float TILEVER;
     public float TILEHOR;
     public int ROOMSIZE;
-    private Furniture[,] Matrix;
-    private Pair[] CoorMatrix;
 
     public GameObject EmptySpace;
     public GameObject Wall;
@@ -19,6 +19,12 @@ public class Room : MonoBehaviour
         BuildCoordenates();
         BuildRoom();
     }
+
+    public Furniture[,] getMatrix()
+    {
+        return Matrix;
+    }
+
     public void BuildRoom()
     {
         Matrix = new Furniture[ROOMSIZE, ROOMSIZE];
@@ -55,6 +61,14 @@ public class Room : MonoBehaviour
                 }
             }
         }
+
+        int ra = 3, la = 7;
+        Matrix[ra, la] = Instantiate(EmptySpace).GetComponent<Furniture>();
+        Matrix[ra, la].Build(true, CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y);
+
+        ra = 9; la = 13;
+        Matrix[ra, la] = Instantiate(EmptySpace).GetComponent<Furniture>();
+        Matrix[ra, la].Build(true, CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y);
     }
 
     public void BuildCoordenates()

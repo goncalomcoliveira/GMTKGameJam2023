@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class Interaction : MonoBehaviour
 {
-    public Pair coordinates;
+    public Position position;
     public abstract int Execute();
-    public abstract Pair Move();
+    public abstract Position Move();
 }
