@@ -7,6 +7,7 @@ TagManager:
   - shop
   - room
   - panel
+  - character
   layers:
   - Default
   - TransparentFX

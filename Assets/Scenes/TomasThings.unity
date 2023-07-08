@@ -577,7 +577,7 @@ GameObject:
   - component: {fileID: 844053592}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -596,7 +596,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ric
   actions: []
-  warningQueue: []
   room: {fileID: 2109016541}
   movement: {fileID: 844053591}
 --- !u!4 &844053590

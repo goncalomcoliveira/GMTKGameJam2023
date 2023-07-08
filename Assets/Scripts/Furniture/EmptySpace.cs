@@ -11,6 +11,7 @@ public class EmptySpace : Furniture
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = null;
         inBuild = false;
+        animator.SetBool("animate", false);
     }
 
     public override void TurnOn()
@@ -18,6 +19,7 @@ public class EmptySpace : Furniture
         gameObject.GetComponent<SpriteRenderer>().sprite = BuildSquare;
         inBuild = true;
         inBuildFurniture = GetShop().GetInBuildFurniture();
+        animator.SetBool("animate", true);
     }
 
     public void OnMouseDown()
