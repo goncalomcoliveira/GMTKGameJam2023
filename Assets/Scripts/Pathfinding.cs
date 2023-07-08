@@ -24,7 +24,7 @@ public class Pathfinding
 
         public int CompareTo(object obj)
         {
-            return (int) (cost - ((Node)obj).cost * 1000);
+            return (int) ((cost - ((Node)obj).cost) * 1000);
         }
     }
 
