@@ -23,17 +23,18 @@ public class Money : MonoBehaviour
         timer += Time.deltaTime;
         while (timer > interval)
         {
-            money += growthRate;
+            Add(growthRate);
             timer -= interval;
-            MoneyText.text = money.ToString();
         }
     }
     public void Add(int quantity)
     {
         money += quantity;
+        MoneyText.text = money.ToString();
     }
     public void Subtract(int quantity)
     {
         money -= quantity;
+        MoneyText.text = money.ToString();
     }
 }
