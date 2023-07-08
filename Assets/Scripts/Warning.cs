@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[System.Serializable]
 public class Warning : Interaction
 {
     public string name;
@@ -11,12 +12,5 @@ public class Warning : Interaction
 
         Debug.Log("Interrupted by " + name + " for " + time + " seconds");
         return time;
-    }
-
-    public override Position Move()
-    {
-        //Walk to coordinates
-
-        return position;
     }
 }
