@@ -6,8 +6,9 @@ using TMPro;
 
 public class Shop : MonoBehaviour
 {
-    public GameObject MoneyManager;
-    public int money;
+    public Room room;
+    public Money MoneyManager;
+    private int money;
 
     public GameObject panel;
     public Furniture[] FurnitureList;
@@ -92,9 +93,12 @@ public class Shop : MonoBehaviour
     }
     public void Buy()
     {
+        money = MoneyManager.money;
         if(money >= FurnitureList[cont].Price)
         {
-
+            MoneyManager.Subtract(FurnitureList[cont].Price);
+            Close();
+            room.BuildModeOn();
         }
     }
 }

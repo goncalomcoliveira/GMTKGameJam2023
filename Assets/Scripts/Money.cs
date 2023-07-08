@@ -6,7 +6,7 @@ using TMPro;
 
 public class Money : MonoBehaviour
 {
-    public static int money;
+    public int money;
     public int growthRate;
 
     public TMP_Text MoneyText;
@@ -27,5 +27,13 @@ public class Money : MonoBehaviour
             timer -= interval;
             MoneyText.text = money.ToString();
         }
+    }
+    public void Add(int quantity)
+    {
+        money += quantity;
+    }
+    public void Subtract(int quantity)
+    {
+        money -= quantity;
     }
 }

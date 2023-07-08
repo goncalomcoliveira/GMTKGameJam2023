@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EmptySpace : Furniture
 {
+    public Sprite BuildSquare;
     public override void TurnOff()
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<SpriteRenderer>().sprite = null;
     }
 
     public override void TurnOn()
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<SpriteRenderer>().sprite = BuildSquare;
+    }
+
+    public void Click()
+    {
     }
 }
