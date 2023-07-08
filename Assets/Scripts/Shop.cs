@@ -46,25 +46,6 @@ public class Shop : MonoBehaviour
     }
     public void Next()
     {
-        cont--;
-        precont--;
-        poscont--;
-        if (precont < 0)
-        {
-            precont = FurnitureList.Length -1;
-        }
-        if (cont < 0)
-        {
-            cont = FurnitureList.Length - 1;
-        }
-        if (poscont < 0)
-        {
-            poscont = FurnitureList.Length - 1;
-        }
-        Show();
-    }
-    public void Previous()
-    {
         cont++;
         poscont++;
         precont++;
@@ -79,6 +60,25 @@ public class Shop : MonoBehaviour
         if (poscont >= FurnitureList.Length)
         {
             poscont = 0;
+        }
+        Show();
+    }
+    public void Previous()
+    {
+        cont--;
+        precont--;
+        poscont--;
+        if (precont < 0)
+        {
+            precont = FurnitureList.Length - 1;
+        }
+        if (cont < 0)
+        {
+            cont = FurnitureList.Length - 1;
+        }
+        if (poscont < 0)
+        {
+            poscont = FurnitureList.Length - 1;
         }
         Show();
     }
