@@ -1,10 +1,12 @@
+using System;
 using UnityEngine;
 
 [System.Serializable]
-public class Warning : Interaction
+public class Warning : Interaction, IComparable
 {
     public string name;
     public int time;
+    public int priority;
 
     public override int Execute()
     {
@@ -12,5 +14,10 @@ public class Warning : Interaction
 
         Debug.Log("Interrupted by " + name + " for " + time + " seconds");
         return time;
+    }
+
+    public int CompareTo(object obj)
+    {
+        return priority.CompareTo(((Warning) obj).priority);
     }
 }
