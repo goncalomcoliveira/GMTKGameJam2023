@@ -64,7 +64,7 @@ public class Character : MonoBehaviour
     }
     */
 
-    public void Execute()
+    private void Execute()
     {
         if (warningQueue.Count > 0)
         {
@@ -98,9 +98,11 @@ public class Character : MonoBehaviour
     {
         StopAllCoroutines();
         busy = false;
-        warningQueue.Add(warning);
 
+        //Se passar na traigem
+        warningQueue.Add(warning);
         Execute();
+        //------------------
     }
 
     public void Test()
