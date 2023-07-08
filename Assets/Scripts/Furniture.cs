@@ -7,6 +7,7 @@ public abstract class Furniture : MonoBehaviour
     public GameObject furniture;
     public Sprite RightSprite;
     public Sprite LeftSprite;
+    public int Price;
 
     public abstract void TurnOn();
     public abstract void TurnOff();
