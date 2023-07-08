@@ -236,10 +236,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d03ca90fa5344d4d868069a6eca5a73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TILENUM: 16
+  TILENUM: 289
   TILESIZE: 1
-  ROOMSIZE: 4
-  WallList: 
+  ROOMSIZE: 17
+  WallList: []
   EmptySpace: {fileID: 395497995137560675, guid: 8b64fd3e6bdc2c64b8bb1670dc457137, type: 3}
   Wall: {fileID: 1194062968280764869, guid: a0b87c68d393efd40996210a4aa10686, type: 3}
 --- !u!4 &2109016542

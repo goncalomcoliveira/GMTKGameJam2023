@@ -6,11 +6,12 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public string name;
+    public Position position;
     public List<Action> actions = new List<Action>();
     public List<Warning> warningQueue = new List<Warning>();
     //public List<Skill> skills;
+    public Room room;
 
-    private Pair position;
     private Interaction executing;
     private bool busy = false;
     private int time = 0;
@@ -54,11 +55,11 @@ public class Character : MonoBehaviour
     {
         if (executing is null)
         {
-            Execute();
+            //Execute();
         }
         else if (!busy)
         {
-            if (position.Equals(executing.coordinates))
+            if (position.Equals(executing.position))
             {
                 busy = true;
                 time = executing.Execute();
@@ -122,5 +123,10 @@ public class Character : MonoBehaviour
         warningQueue.Add(warning);
 
         Execute();
+    }
+
+    public void Test()
+    {
+        Pathfinding.Search(new Position(5, 1), new Position(15, 14), room);
     }
 }

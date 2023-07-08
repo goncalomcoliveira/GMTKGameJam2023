@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class Furniture : MonoBehaviour
 {
+
     public GameObject furniture;
     public Sprite RightSprite;
     public Sprite LeftSprite;
