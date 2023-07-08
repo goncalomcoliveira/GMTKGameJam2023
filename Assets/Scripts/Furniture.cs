@@ -13,6 +13,8 @@ public abstract class Furniture : MonoBehaviour
     private bool canClick;
     public int length;
 
+    public Animator animator;
+
     public abstract void TurnOn();
     public abstract void TurnOff();
 
@@ -22,9 +24,9 @@ public abstract class Furniture : MonoBehaviour
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0];
     }
-    public void Move(float x,float y)
+    public void Move(float x,float y,int r, int l)
     {
-        if (x<0)
+        if ((x<0 && l!=6) || r == 10)
         {
             gameObject.GetComponent<Transform>().rotation = new Quaternion(0, 90, 0, 0);
         }
@@ -33,15 +35,28 @@ public abstract class Furniture : MonoBehaviour
 
     public void Build(float x, float y, int r, int l)
     {
-        Move(x, y);
+        Move(x, y, r, l);
         if(room == null)
         {
             room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         }
         this.r = r;
         this.l = l;
-        Destroy(room.Matrix[r, l]);
+        room.Destroy(r, l);
         room.Matrix[r, l] = gameObject.GetComponent<Furniture>();
+        if(length == 2)
+        {
+            if ((x < 0 && l != 6) || r == 10)
+            {
+                room.Destroy(r, l-1);
+                room.Matrix[r, l-1] = gameObject.GetComponent<Furniture>();
+            }
+            else
+            {
+                room.Destroy(r+1, l);
+                room.Matrix[r+1, l] = gameObject.GetComponent<Furniture>();
+            }
+        }
         room.BuildModeOff();
     }
     public Shop GetShop()

@@ -137,7 +137,7 @@ public class Room : MonoBehaviour
         else return 2;
     }
 
-    public void BuildModeOn()
+    public void BuildModeOn(GameObject buildFurniture)
     {
         for (int r = 1; r < ROOMSIZE; r++)
         {
@@ -165,6 +165,19 @@ public class Room : MonoBehaviour
             if (Matrix[r, 6] is EmptySpace && r!=3)
             {
                 Matrix[r, 6].TurnOn();
+            }
+        }
+        if(buildFurniture.GetComponent<Furniture>().length == 2)
+        {
+            List<Furniture> noList = new List<Furniture>
+            { Matrix[0, 0], Matrix[0, 8], Matrix[2, 6], Matrix[10, 14], Matrix[10, 10], Matrix[8, ROOMSIZE-1], Matrix[ROOMSIZE - 1, ROOMSIZE - 1]};
+
+            foreach(Furniture f in noList)
+            {
+                if(f is EmptySpace)
+                {
+                    f.TurnOff();
+                }
             }
         }
     }
@@ -197,6 +210,13 @@ public class Room : MonoBehaviour
             {
                 Matrix[r, 6].TurnOff();
             }
+        }
+    }
+    public void Destroy(int r, int l)
+    {
+        if(Matrix[r,l] != null)
+        {
+            Destroy(Matrix[r, l].gameObject);
         }
     }
 }
