@@ -1,27 +1,41 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Furniture : MonoBehaviour
 {
-    private static Room room;
-    private static Shop shop;
-    private static GameObject panel;
     public int r;
     public int l;
     public int Price;
-    private bool canClick;
     public int length;
+    public List<Quality> qualities = new List<Quality>();
+    public Warning warning;
+
+    private static Room room;
+    private static Shop shop;
+    private static GameObject panel;
+    private static Character character;
+    private bool canClick;
+    private bool activate;
 
     public abstract void TurnOn();
     public abstract void TurnOff();
 
     public void Start()
     {
+        character = GameObject.FindGameObjectsWithTag("character")[0].GetComponent<Character>();
         room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0];
     }
+
+    public void Update()
+    {
+        if (activate)
+        {
+            activate = character.Interrupt(warning);
+        }   
+    }
+
     public void Move(float x,float y)
     {
         if (x<0)
@@ -75,8 +89,18 @@ public abstract class Furniture : MonoBehaviour
     {
 
     }
+
     public void Activate()
     {
+        TurnOn();
+        DeathManager.Environment(qualities);
+        activate = true;
+    }
 
+    public void Deactivate()
+    {
+        TurnOff();
+        DeathManager.EnvironmentRemove(qualities);
+        activate = false;
     }
 }

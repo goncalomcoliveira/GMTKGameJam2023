@@ -21,10 +21,10 @@ public class Character : MonoBehaviour
     {
         room.Start();
 
-        Test();
-
         movement.position = new Position(7, 10);
         movement.transform.position = room.GetVector(movement.position);
+
+        Test();
     }
 
     // Update is called once per frame
@@ -92,18 +92,47 @@ public class Character : MonoBehaviour
         executing.Move(movement.position, room, movement);
     }
 
-    public void Interrupt(Warning warning)
+    public bool Interrupt(Warning warning)
     {
-        StopAllCoroutines();
-        busy = false;
+        if (Notice(warning))
+        {
+            StopAllCoroutines();
+            busy = false;
 
-        //Se passar na traigem
-        warningQueue.Enqueue(warning);
-        Execute();
-        //------------------
+            warningQueue.Enqueue(warning);
+            Execute();
+            return false;
+        }
+
+        return true;
     }
 
-    public void Test()
+    private bool Notice(Warning warning)
+    {
+        bool sound = (Mathf.Pow(warning.position.x - movement.position.x,2) + Mathf.Pow(warning.position.y - movement.position.y, 2)) <= Mathf.Pow(warning.soundRadius,2);
+        bool sameRoom = room.GetRoom(movement.position.x, movement.position.y) == warning.roomNumber;
+
+        bool linearVisionVertical = movement.position.y == warning.position.y;
+        for(int i = movement.position.x; i != warning.position.x; i -= (int) ((movement.position.x - warning.position.x)/Mathf.Abs(movement.position.x - warning.position.x)))
+        {
+            if (!linearVisionVertical) break;
+            linearVisionVertical = room.Matrix[i, movement.position.y] is not Wall;
+        }
+
+        bool linearVisionHorizontal = movement.position.x == warning.position.x;
+        for (int i = movement.position.y; i != warning.position.y; i -= (int)((movement.position.y - warning.position.y) / Mathf.Abs(movement.position.y - warning.position.y)))
+        {
+            if (!linearVisionHorizontal) break;
+            linearVisionHorizontal = room.Matrix[movement.position.x, i] is not Wall;
+        }
+
+        Debug.Log("sound: " + sound + " sameRoom:" + sameRoom + " linearVisionVertical:" + linearVisionVertical + " linearVisionHorizontal:" + linearVisionHorizontal);
+        bool vision = sameRoom || linearVisionVertical || linearVisionHorizontal;
+
+        return sound || vision;
+    }
+
+    private void Test()
     {
         actions = new List<Action>
         {
