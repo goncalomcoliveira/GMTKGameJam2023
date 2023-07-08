@@ -11,6 +11,7 @@ public abstract class Furniture : MonoBehaviour
     public int l;
     public int Price;
     private bool canClick;
+    public int length;
 
     public abstract void TurnOn();
     public abstract void TurnOff();
