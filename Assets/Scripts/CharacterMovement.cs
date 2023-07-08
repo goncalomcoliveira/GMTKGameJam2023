@@ -1,26 +1,23 @@
-using Mono.Cecil;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class CharacterMovement : MonoBehaviour
 {
     public Transform sprite;
-    public float moveSpeed = 7f;
+    public float moveSpeed;
     public Character character;
 
-    public Rigidbody2D rb;
-    public Camera cam;
     //public Animator anim;
 
+    [HideInInspector]
     public Position position = new Position(1, 1);
+    [HideInInspector]
+    public bool local = false;
+
     private List<Position> queue = new List<Position>();
     private Vector3 targetVector;
     private Position target;
     private bool walking = false;
-    public bool local = false;
 
     void FixedUpdate()
     {
