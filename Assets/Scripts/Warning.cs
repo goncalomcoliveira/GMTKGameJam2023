@@ -8,6 +8,8 @@ public class Warning : Interaction, IComparable
     public int time;
     public int priority;
     public Furniture furniture;
+    public int soundRadius;
+    public int roomNumber;
 
     public override int Execute()
     {

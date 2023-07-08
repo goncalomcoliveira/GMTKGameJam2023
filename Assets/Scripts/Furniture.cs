@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,8 +5,17 @@ using TMPro;
 
 public abstract class Furniture : MonoBehaviour
 {
+    public int r;
+    public int l;
+    public int Price;
+    public int length;
+    public List<Quality> qualities = new List<Quality>();
+    public Warning warning;
+
     private static Room room;
     private static Shop shop;
+    private static GameObject panel;
+    private static Character character;
     private static TMP_Text panel;
     public int r;
     public int l;
@@ -24,11 +32,21 @@ public abstract class Furniture : MonoBehaviour
 
     public void Start()
     {
+        character = GameObject.FindGameObjectsWithTag("character")[0].GetComponent<Character>();
         room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0].GetComponent<TMP_Text>();
     }
-    public void Move(float x,float y,int r, int l)
+
+    public void Update()
+    {
+        if (activate)
+        {
+            activate = character.Interrupt(warning);
+        }   
+    }
+
+    public void Move(float x, float y, int r, int l)
     {
         if ((x<0 && l!=6) || r == 10)
         {
@@ -103,8 +121,18 @@ public abstract class Furniture : MonoBehaviour
     {
 
     }
+
     public void Activate()
     {
+        TurnOn();
+        DeathManager.Environment(qualities);
+        activate = true;
+    }
 
+    public void Deactivate()
+    {
+        TurnOff();
+        DeathManager.EnvironmentRemove(qualities);
+        activate = false;
     }
 }
