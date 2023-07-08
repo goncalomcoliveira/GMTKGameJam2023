@@ -50,9 +50,10 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        executing.Finish();
         busy = false;
         executing = null;
-        movement.local = false;
+        movement.local = false;       
     }
 
     /*

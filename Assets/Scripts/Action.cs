@@ -15,4 +15,9 @@ public class Action : Interaction
         Debug.Log("Executing action: " + name + " for " + time + " seconds");
         return time;
     }
+
+    public override void Finish()
+    {
+
+    }
 }
