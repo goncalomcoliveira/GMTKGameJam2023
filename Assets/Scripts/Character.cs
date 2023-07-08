@@ -6,7 +6,7 @@ public class Character : MonoBehaviour
 {
     public string name;
     public List<Action> actions = new List<Action>();
-    public List<Warning> warningQueue = new List<Warning>();
+    public PriorityQueue<Warning> warningQueue = new PriorityQueue<Warning>();
     //public List<Skill> skills;
     public Room room;
     public CharacterMovement movement;
@@ -16,8 +16,6 @@ public class Character : MonoBehaviour
     private int time = 0;
     private Interaction interrupted;
 
-    private bool delete = true;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -25,7 +23,7 @@ public class Character : MonoBehaviour
 
         Test();
 
-        movement.position = new Position(1, 1);
+        movement.position = new Position(7, 10);
         movement.transform.position = room.GetVector(movement.position);
     }
 
@@ -52,9 +50,10 @@ public class Character : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
 
+        executing.Finish();
         busy = false;
         executing = null;
-        movement.local = false;
+        movement.local = false;       
     }
 
     /*
@@ -64,7 +63,7 @@ public class Character : MonoBehaviour
     }
     */
 
-    public void Execute()
+    private void Execute()
     {
         if (warningQueue.Count > 0)
         {
@@ -77,8 +76,7 @@ public class Character : MonoBehaviour
                 return;
             }
 
-            executing = warningQueue[0];
-            warningQueue.RemoveAt(0);
+            executing = warningQueue.Dequeue();
         }
         else if (interrupted is null)
         {
@@ -98,9 +96,11 @@ public class Character : MonoBehaviour
     {
         StopAllCoroutines();
         busy = false;
-        warningQueue.Add(warning);
 
+        //Se passar na traigem
+        warningQueue.Enqueue(warning);
         Execute();
+        //------------------
     }
 
     public void Test()
