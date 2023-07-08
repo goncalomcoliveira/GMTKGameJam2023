@@ -22,12 +22,11 @@ public class EmptySpace : Furniture
 
     public void OnMouseDown()
     {
-        Debug.Log("aqui");
         if (inBuild)
         {
             float x = gameObject.transform.position.x;
             float y = gameObject.transform.position.y;
-            inBuildFurniture.GetComponent<Furniture>().Move(x, y);
+            inBuildFurniture.GetComponent<Furniture>().Build(x, y, r, l);
         }
     }
 }

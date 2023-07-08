@@ -7,8 +7,11 @@ public abstract class Furniture : MonoBehaviour
     private static Room room;
     private static Shop shop;
     private static GameObject panel;
+    public int r;
+    public int l;
     public int Price;
     private bool canClick;
+    public int length;
 
     public abstract void TurnOn();
     public abstract void TurnOff();
@@ -35,6 +38,9 @@ public abstract class Furniture : MonoBehaviour
         {
             room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         }
+        this.r = r;
+        this.l = l;
+        Destroy(room.Matrix[r, l]);
         room.Matrix[r, l] = gameObject.GetComponent<Furniture>();
         room.BuildModeOff();
     }
@@ -49,18 +55,15 @@ public abstract class Furniture : MonoBehaviour
     public void OnMouseEnter()
     {
         canClick = true;
-        Debug.Log("Entrou");
     }
     public void OnMouseExit()
     {
         canClick = false;
-        Debug.Log("saiu");
     }
     public void OnMouseDown()
     {
         if (canClick)
         {
-            Debug.Log("ok");
             ShowPanel();
         }
     }
@@ -69,6 +72,10 @@ public abstract class Furniture : MonoBehaviour
         return canClick;
     }
     public void ShowPanel()
+    {
+
+    }
+    public void Activate()
     {
 
     }
