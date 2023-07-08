@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
 
         Test();
 
-        movement.position = new Position(1, 1);
+        movement.position = new Position(7, 10);
         movement.transform.position = room.GetVector(movement.position);
     }
 
