@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    private Furniture[,] Matrix;
+    public Furniture[,] Matrix;
     private Pair[] CoorMatrix;
     public int TILENUM;
-    public float TILESIZE;
+    public float TILEVER;
+    public float TILEHOR;
     public int ROOMSIZE;
-
-    public Pair[] WallList;
 
     public GameObject EmptySpace;
     public GameObject Wall;
@@ -35,28 +34,18 @@ public class Room : MonoBehaviour
         {
             for (int l = 0; l < 10; l++)
             {
-                Matrix[r, l] = Instantiate(Wall).GetComponent<Furniture>();
-                Matrix[r, l].Build(true, CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y);
+                Instantiate(Wall).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y,r,l);
             }
         }
         for (int l = 0; l < ROOMSIZE; l++)
         {
             int r = ROOMSIZE - 8;
-            Matrix[r, l] = Instantiate(Wall).GetComponent<Furniture>();
-            Matrix[r, l].Build(true, CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y);
+            Instantiate(Wall).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y,r,l);
         }
         for (int r = 0; r < ROOMSIZE; r++)
         {
             int l = 7;
-            Matrix[r, l] = Instantiate(Wall).GetComponent<Furniture>();
-            Matrix[r, l].Build(true, CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y);
-        }
-        for (int i = 0; i < WallList.Length; i++)
-        {
-            int x = (int)WallList[i].x;
-            int y = (int)WallList[i].y;
-            Matrix[x, y] = Instantiate(Wall).GetComponent<Furniture>();
-            Matrix[x, y].Build(true, CoorMatrix[ROOMSIZE * x + y].x, CoorMatrix[ROOMSIZE * x + y].y);
+            Instantiate(Wall).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y, r, l);
         }
 
         for (int r = 0; r < ROOMSIZE; r++)
@@ -65,19 +54,16 @@ public class Room : MonoBehaviour
             {
                 if (Matrix[r, l] is null)
                 {
-                    Matrix[r, l] = Instantiate(EmptySpace).GetComponent<Furniture>();
-                    Matrix[r, l].Build(true, CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y);
+                    Instantiate(EmptySpace).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * r + l].x, CoorMatrix[ROOMSIZE * r + l].y, r, l);
                 }
             }
         }
 
         int ra = 3, la = 7;
-        Matrix[ra, la] = Instantiate(EmptySpace).GetComponent<Furniture>();
-        Matrix[ra, la].Build(true, CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y);
+        Instantiate(EmptySpace).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y, ra, la);
 
         ra = 9; la = 13;
-        Matrix[ra, la] = Instantiate(EmptySpace).GetComponent<Furniture>();
-        Matrix[ra, la].Build(true, CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y);
+        Instantiate(EmptySpace).GetComponent<Furniture>().Build(CoorMatrix[ROOMSIZE * ra + la].x, CoorMatrix[ROOMSIZE * ra + la].y, ra, la);
     }
 
     public void BuildCoordenates()
@@ -88,13 +74,13 @@ public class Room : MonoBehaviour
 
         for (int i = 0; i < ROOMSIZE; i++)
         {
-            CoorHor[ROOMSIZE - 1 - i] = -(TILESIZE / 2) * i;
-            CoorHor[i+ROOMSIZE-1] = (TILESIZE / 2) * i;
+            CoorHor[ROOMSIZE - 1 - i] = -(TILEHOR / 2) * i;
+            CoorHor[i+ROOMSIZE-1] = (TILEHOR / 2) * i;
         }
         for (int i = 1; i < ROOMSIZE; i++)
         {
-            CoorVer[i] = (TILESIZE / 2) * (i);
-            CoorVer[2*ROOMSIZE-1-i] = -(TILESIZE / 2) * (i);
+            CoorVer[i] = (TILEVER / 2) * (i);
+            CoorVer[2*ROOMSIZE-1-i] = -(TILEVER / 2) * (i);
         }
 
         int x = 0;
@@ -135,6 +121,82 @@ public class Room : MonoBehaviour
         {
             Debug.Log(e.StackTrace);
             return new Vector3(0,0,0);
+        }
+    }
+
+    public int GetRoom(int r, int l)
+    {
+        if (l < 7)
+        {
+            return 1;
+        }
+        else if (r > ROOMSIZE - 8)
+        {
+            return 3;
+        }
+        else return 2;
+    }
+
+    public void BuildModeOn()
+    {
+        for (int r = 1; r < ROOMSIZE; r++)
+        {
+            if (Matrix[r, ROOMSIZE-1] is EmptySpace && r != ROOMSIZE-7)
+            {
+                Matrix[r, ROOMSIZE-1].TurnOn();
+            }
+        }
+        for (int l = 0; l < ROOMSIZE-1; l++)
+        {
+            if(Matrix[0,l] is EmptySpace && l != 6)
+            {
+                Matrix[0, l].TurnOn();
+            }
+        }
+        for (int l = ROOMSIZE-7; l < ROOMSIZE-1; l++)
+        {
+            if (Matrix[ROOMSIZE-7, l] is EmptySpace && l != 13)
+            {
+                Matrix[ROOMSIZE-7, l].TurnOn();
+            }
+        }
+        for (int r = 1; r < ROOMSIZE; r++)
+        {
+            if (Matrix[r, 6] is EmptySpace && r!=3)
+            {
+                Matrix[r, 6].TurnOn();
+            }
+        }
+    }
+    public void BuildModeOff()
+    {
+        for (int r = 1; r < ROOMSIZE; r++)
+        {
+            if (Matrix[r, ROOMSIZE - 1] is EmptySpace && r != ROOMSIZE - 7)
+            {
+                Matrix[r, ROOMSIZE - 1].TurnOff();
+            }
+        }
+        for (int l = 0; l < ROOMSIZE - 1; l++)
+        {
+            if (Matrix[0, l] is EmptySpace && l != 6)
+            {
+                Matrix[0, l].TurnOff();
+            }
+        }
+        for (int l = ROOMSIZE - 7; l < ROOMSIZE - 1; l++)
+        {
+            if (Matrix[ROOMSIZE - 7, l] is EmptySpace && l != 13)
+            {
+                Matrix[ROOMSIZE - 7, l].TurnOff();
+            }
+        }
+        for (int r = 1; r < ROOMSIZE; r++)
+        {
+            if (Matrix[r, 6] is EmptySpace && r != 3)
+            {
+                Matrix[r, 6].TurnOff();
+            }
         }
     }
 }

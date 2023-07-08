@@ -4,13 +4,30 @@ using UnityEngine;
 
 public class EmptySpace : Furniture
 {
+    public Sprite BuildSquare;
+    private bool inBuild;
+    private GameObject inBuildFurniture;
     public override void TurnOff()
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<SpriteRenderer>().sprite = null;
+        inBuild = false;
     }
 
     public override void TurnOn()
     {
-        throw new System.NotImplementedException();
+        gameObject.GetComponent<SpriteRenderer>().sprite = BuildSquare;
+        inBuild = true;
+        inBuildFurniture = GetShop().GetInBuildFurniture();
+    }
+
+    public void OnMouseDown()
+    {
+        Debug.Log("aqui");
+        if (inBuild)
+        {
+            float x = gameObject.transform.position.x;
+            float y = gameObject.transform.position.y;
+            inBuildFurniture.GetComponent<Furniture>().Move(x, y);
+        }
     }
 }
