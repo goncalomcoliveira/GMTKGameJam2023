@@ -14,14 +14,10 @@ public abstract class Furniture : MonoBehaviour
 
     private static Room room;
     private static Shop shop;
-    private static GameObject panel;
     private static Character character;
     private static TMP_Text panel;
-    public int r;
-    public int l;
-    public int Price;
     private bool canClick;
-    public int length;
+    private bool activate;
     public int eletricCost;
 
 
