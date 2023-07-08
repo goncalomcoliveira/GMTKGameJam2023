@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public abstract class Furniture : MonoBehaviour
 {
     private static Room room;
     private static Shop shop;
-    private static GameObject panel;
+    private static TMP_Text panel;
     public int r;
     public int l;
     public int Price;
     private bool canClick;
     public int length;
+    public int eletricCost;
+
 
     public Animator animator;
 
@@ -22,7 +26,7 @@ public abstract class Furniture : MonoBehaviour
     {
         room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
-        panel = GameObject.FindGameObjectsWithTag("panel")[0];
+        panel = GameObject.FindGameObjectsWithTag("panel")[0].GetComponent<TMP_Text>();
     }
     public void Move(float x,float y,int r, int l)
     {
@@ -70,10 +74,19 @@ public abstract class Furniture : MonoBehaviour
     public void OnMouseEnter()
     {
         canClick = true;
+        if(gameObject.GetComponent<Furniture>() is not EmptySpace && gameObject.GetComponent<Furniture>() is not Wall)
+        {
+            Transform transform = gameObject.GetComponent<Transform>();
+            panel.text = eletricCost.ToString();
+            panel.GetComponent<RectTransform>().position = transform.position;
+            Debug.Log("entered");
+        }
     }
     public void OnMouseExit()
     {
         canClick = false;
+        panel.text = "";
+        Debug.Log("Exited");
     }
     public void OnMouseDown()
     {
