@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Character : MonoBehaviour
 {
     public string name;
-    public Position position;
     public List<Action> actions = new List<Action>();
     public List<Warning> warningQueue = new List<Warning>();
     //public List<Skill> skills;
     public Room room;
+    public CharacterMovement movement;
 
     private Interaction executing;
     private bool busy = false;
@@ -22,32 +21,12 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*position = new Pair(0,0);
+        room.Start();
 
-        actions = new List<Action>
-        {
-            new Action
-            {
-                name = "A1",
-                coordinates = new Pair(0,0),
-                minTime = 5,
-                maxTime = 10
-            },
-            new Action
-            {
-                name = "A2",
-                coordinates = new Pair(0,0),
-                minTime = 5,
-                maxTime = 10
-            },
-            new Action
-            {
-                name = "A3",
-                coordinates = new Pair(0,0),
-                minTime = 5,
-                maxTime = 10
-            }
-        };*/
+        Test();
+
+        movement.position = new Position(1, 1);
+        movement.transform.position = room.GetVector(movement.position);
     }
 
     // Update is called once per frame
@@ -55,28 +34,27 @@ public class Character : MonoBehaviour
     {
         if (executing is null)
         {
-            //Execute();
+            if (actions.Count != 0) Execute();
         }
-        else if (!busy)
+        else if (!busy && movement.local)
         {
-            if (position.Equals(executing.position))
-            {
-                busy = true;
-                time = executing.Execute();
-                StartCoroutine(wait());
-            }
+            busy = true;
+            time = executing.Execute();
+            StartCoroutine(wait());
         }
     }
 
-    IEnumerator wait()
+    public IEnumerator wait()
     {
         while (--time > 0)
         {
+            Debug.Log(time);
             yield return new WaitForSeconds(1);
         }
 
         busy = false;
         executing = null;
+        movement.local = false;
     }
 
     /*
@@ -113,7 +91,7 @@ public class Character : MonoBehaviour
             interrupted = null;
         }
 
-        executing.Move();
+        executing.Move(movement.position, room, movement);
     }
 
     public void Interrupt(Warning warning)
@@ -127,6 +105,29 @@ public class Character : MonoBehaviour
 
     public void Test()
     {
-        Pathfinding.Search(new Position(5, 1), new Position(15, 14), room);
+        actions = new List<Action>
+        {
+            new Action
+            {
+                name = "A1",
+                position = new Position(15,14),
+                minTime = 5,
+                maxTime = 10
+            },
+            new Action
+            {
+                name = "A2",
+                position = new Position(5,4),
+                minTime = 5,
+                maxTime = 10
+            },
+            new Action
+            {
+                name = "A3",
+                position = new Position(2,12),
+                minTime = 5,
+                maxTime = 10
+            }
+        };
     }
 }

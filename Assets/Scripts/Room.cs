@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -121,6 +122,19 @@ public class Room : MonoBehaviour
             {
                 x = 0;
             }
+        }
+    }
+
+    public Vector3 GetVector(Position position)
+    {
+        try
+        {
+            return new Vector3(CoorMatrix[ROOMSIZE * position.x + position.y].x, CoorMatrix[ROOMSIZE * position.x + position.y].y, transform.position.z);
+        }
+        catch (Exception e)
+        {
+            Debug.Log(e.StackTrace);
+            return new Vector3(0,0,0);
         }
     }
 }

@@ -1,5 +1,6 @@
 using Unity.VisualScripting;
 
+[System.Serializable]
 public class Position
 {
     public int x;
