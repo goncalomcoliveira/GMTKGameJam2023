@@ -4,7 +4,6 @@ using UnityEngine;
 
 public abstract class Furniture : MonoBehaviour
 {
-    public GameObject furniture;
     public Sprite RightSprite;
     public Sprite LeftSprite;
     public int Price;
@@ -15,13 +14,13 @@ public abstract class Furniture : MonoBehaviour
     {
         if (toTheRight)
         {
-            furniture.GetComponent<SpriteRenderer>().sprite = RightSprite;
+            gameObject.GetComponent<SpriteRenderer>().sprite = RightSprite;
         }
         else
         {
-            furniture.GetComponent<SpriteRenderer>().sprite = LeftSprite;
+            gameObject.GetComponent<SpriteRenderer>().sprite = LeftSprite;
         }
 
-        furniture.transform.position = new Vector3(x, y, 0);
+        gameObject.transform.position = new Vector3(x, y, 0);
     }
 }
