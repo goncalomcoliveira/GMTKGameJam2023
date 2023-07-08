@@ -33,7 +33,7 @@ public class Shop : MonoBehaviour
         cont = 0;
         poscont = 1;
         precont = FurnitureList.Length - 1;
-        Open();
+        Close();
     }
     public void Open()
     {
@@ -99,9 +99,10 @@ public class Shop : MonoBehaviour
         if(money >= FurnitureList[cont].GetComponent<Furniture>().Price)
         {
             inBuildFurniture = Instantiate(FurnitureList[cont]);
+            inBuildFurniture.GetComponent<Transform>().position = new Vector3(100, 100, 0);
             MoneyManager.Subtract(FurnitureList[cont].GetComponent<Furniture>().Price);
             Close();
-            room.BuildModeOn();
+            room.BuildModeOn(inBuildFurniture);
         }
     }
     public GameObject GetInBuildFurniture()
