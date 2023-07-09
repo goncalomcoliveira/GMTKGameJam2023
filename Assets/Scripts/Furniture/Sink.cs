@@ -4,13 +4,23 @@ using UnityEngine;
 
 public class Sink : Furniture
 {
+    public override void Interact()
+    {
+        animator.SetBool("interact", true);
+    }
+
+    public override void Leave()
+    {
+        animator.SetBool("interact", false);
+    }
+
     public override void TurnOff()
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("animate", false);
     }
 
     public override void TurnOn()
     {
-        throw new System.NotImplementedException();
+        animator.SetBool("animate", true);
     }
 }

@@ -35,4 +35,16 @@ public class EmptySpace : Furniture
             inBuildFurniture.GetComponent<Furniture>().Build(x, y, r, l);
         }
     }
+    public void OnMouseEnter()
+    {
+        
+    }
+
+    public override void Interact()
+    {
+    }
+
+    public override void Leave()
+    {
+    }
 }

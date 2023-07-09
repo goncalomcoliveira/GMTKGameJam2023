@@ -9,6 +9,7 @@ public class Action : Interaction
     public override int Execute()
     {
         //Change animator
+        if (furniture is object) furniture.Interact();
 
         int time = Random.Range(minTime, maxTime + 1);
         //Debug.Log("Executing action: " + name + " for " + time + " seconds");
@@ -17,7 +18,7 @@ public class Action : Interaction
 
     public override void Finish()
     {
-        
+        if (furniture is object) furniture.Leave();
     }
 
     public override bool Equals(object other)
