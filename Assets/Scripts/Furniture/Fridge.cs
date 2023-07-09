@@ -6,10 +6,12 @@ public class Fridge : Furniture
 {
     public Sprite open;
     public Sprite closed;
-    public AudioClip audioClip;
+    public AudioClip eatSound;
+    public AudioClip openSound;
     public override void Interact()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = open;
+        SoundManager.Instance.PlaySound(eatSound);
     }
 
     public override void Leave()
@@ -25,5 +27,6 @@ public class Fridge : Furniture
     public override void TurnOn()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = open;
+        SoundManager.Instance.PlaySound(openSound);
     }
 }

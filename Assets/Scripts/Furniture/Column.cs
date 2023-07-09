@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Column : Furniture
 {
-    public AudioClip audioClip;
+    public AudioClip scary;
+    public AudioClip beat;
 
     public override void Interact()
     {
         animator.SetBool("animate", true);
+        SoundManager.Instance.PlaySound(beat);
     }
 
     public override void Leave()
@@ -24,5 +26,6 @@ public class Column : Furniture
     public override void TurnOn()
     {
         animator.SetBool("animate", true);
+        SoundManager.Instance.PlaySound(scary);
     }
 }

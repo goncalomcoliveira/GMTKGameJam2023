@@ -103,10 +103,11 @@ MonoBehaviour:
   Price: 30
   length: 2
   qualities: 
-  warning: {fileID: 0}
+  warningPrefab: {fileID: 0}
   actions:
   - {fileID: 3649482842422225985, guid: 0005a6e3a3bf267459a5e1e5b894f0fe, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
   sleep: {fileID: 21300000, guid: ed7e9494b51f1c9488e753430da4b2cd, type: 3}
   awake: {fileID: 21300000, guid: 076ccddc3b411d0419f05e55bb1e1461, type: 3}
+  audioClip: {fileID: 8300000, guid: b3e1dc9a314e45e4981c141c3744dbc4, type: 3}

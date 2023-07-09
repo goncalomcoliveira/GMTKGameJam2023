@@ -12,6 +12,7 @@ public class Bed : Furniture
     public override void Interact()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = sleep;
+        SoundManager.Instance.PlaySound(audioClip);
         child = GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>();
         child.enabled = false;
     }
