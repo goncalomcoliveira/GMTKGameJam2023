@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lamp : Furniture
 {
+    public AudioClip flicker;
     public override void Interact()
     {
         animator.SetBool("animate", true);
@@ -22,5 +23,6 @@ public class Lamp : Furniture
     public override void TurnOn()
     {
         animator.SetBool("animate", true);
+        SoundManager.Instance.PlaySound(flicker);
     }
 }

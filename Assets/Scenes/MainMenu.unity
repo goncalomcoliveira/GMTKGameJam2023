@@ -475,7 +475,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1485278285}
   - {fileID: 1473230687}
   - {fileID: 1012297651}
   m_Father: {fileID: 0}
@@ -719,7 +718,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657792824}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1012297652
 MonoBehaviour:
@@ -1437,7 +1436,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 657792824}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1473230688
 MonoBehaviour:
@@ -1477,7 +1476,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1485278284}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1485,8 +1484,8 @@ Transform:
   - {fileID: 1472527653}
   - {fileID: 1178471990}
   - {fileID: 1994151804}
-  m_Father: {fileID: 657792824}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1485278286
 MonoBehaviour:
@@ -1504,7 +1503,7 @@ MonoBehaviour:
   track2Source: {fileID: 1178471991}
   effectsSource: {fileID: 1994151805}
   playFromStart: 1
-  fadeTracks: 1
+  fadeTracks: 0
   timeToFade: 0.25
 --- !u!1 &1495343634
 GameObject:

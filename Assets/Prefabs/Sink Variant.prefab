@@ -205,3 +205,4 @@ MonoBehaviour:
   - {fileID: 2572882903016721913, guid: bf49a12885212a94aaed48fa1cc667ba, type: 3}
   eletricCost: 0
   animator: {fileID: 1377992783024803245}
+  water: {fileID: 8300000, guid: 1e2e678bde2799e48b7822bc9de14e69, type: 3}

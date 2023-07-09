@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Plant : Furniture
 {
+    public AudioClip audioClip;
     public override void Interact()
     {
         throw new System.NotImplementedException();

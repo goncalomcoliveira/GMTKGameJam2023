@@ -194,11 +194,12 @@ MonoBehaviour:
   l: 0
   Price: 200
   length: 0
-  qualities: 0100000005000000
+  qualities: 010000000500000000000000
   warningPrefab: {fileID: 5947543615129012422, guid: cf104a9aa5553d649aa1a3ee93b9f939, type: 3}
   actions: []
   eletricCost: 0
   animator: {fileID: 6970362432881213428}
+  flicker: {fileID: 8300000, guid: 2c5f68a923e5afd4c8f756ffe49117de, type: 3}
 --- !u!95 &6970362432881213428 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}

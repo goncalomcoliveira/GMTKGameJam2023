@@ -202,3 +202,5 @@ MonoBehaviour:
   animator: {fileID: 0}
   open: {fileID: 21300000, guid: 34b4641e0c4f0914fb26dd3f35339422, type: 3}
   closed: {fileID: 21300000, guid: 6094b42fca5775b4c9e655c78e9b6bed, type: 3}
+  eatSound: {fileID: 8300000, guid: e7926f7080eb1e64fb331770867c7eba, type: 3}
+  openSound: {fileID: 8300000, guid: b562ac0ca1a262f43b59488fcd1aee5d, type: 3}

@@ -94,7 +94,7 @@ PrefabInstance:
     - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: c3a82d7295e6c244d9df07fb63f2fc27, type: 2}
+      objectReference: {fileID: 9100000, guid: c0aa6a596bbf6c845b4295f799a5f3d5, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -290,4 +290,5 @@ MonoBehaviour:
   - {fileID: 8825295655691747354, guid: c52fa2b2d598af645a70f2730489455a, type: 3}
   eletricCost: 0
   animator: {fileID: 4164397742406176792}
-  ladder: {fileID: 4252497317282940303}
+  ladder: {fileID: 4221656090866157236}
+  ladderSprite: {fileID: 21300000, guid: 2ca7a8708c245404caad29709c9bff63, type: 3}

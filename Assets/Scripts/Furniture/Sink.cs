@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class Sink : Furniture
 {
+    public AudioClip water;
     public override void Interact()
     {
         animator.SetBool("interact", true);
+        SoundManager.Instance.PlaySound(water);
     }
 
     public override void Leave()
@@ -22,5 +24,6 @@ public class Sink : Furniture
     public override void TurnOn()
     {
         animator.SetBool("animate", true);
+        SoundManager.Instance.PlaySound(water);
     }
 }

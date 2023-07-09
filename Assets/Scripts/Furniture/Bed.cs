@@ -6,9 +6,12 @@ public class Bed : Furniture
 {
     public Sprite sleep;
     public Sprite awake;
+    public AudioClip audioClip;
+
     public override void Interact()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = sleep;
+        SoundManager.Instance.PlaySound(audioClip);
     }
 
     public override void Leave()
