@@ -9,6 +9,7 @@ TagManager:
   - panel
   - character
   - death
+  - child
   layers:
   - Default
   - TransparentFX
