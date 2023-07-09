@@ -17,7 +17,7 @@ public abstract class Furniture : MonoBehaviour
 
     private static Room room;
     private static Shop shop;
-    private static Character character;
+    public static Character character;
     private static TMP_Text panel;
     private static DeathManager deathManager;
     private bool canClick;
@@ -95,6 +95,7 @@ public abstract class Furniture : MonoBehaviour
         {
             warning = Instantiate(warningPrefab).GetComponent<Warning>();
             warning.position = new Position((r == 0 || r == 10 ? r + 1 : r), (l == room.ROOMSIZE - 1 || l == 6 ? l - 1 : l));
+            warning.roomNumber = room.GetRoom(warning.position.x, warning.position.y);
             warning.furniture = this;
         }
     }

@@ -1548,7 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.data[1]
@@ -1577,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.data[7]
       value: 
-      objectReference: {fileID: 2080919817878629436, guid: cb3ec7c108c6a834aa91b34a81c16963, type: 3}
+      objectReference: {fileID: 8402151796970610899, guid: c52fa2b2d598af645a70f2730489455a, type: 3}
     - target: {fileID: 7223187324980829372, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: anim
       value: 
@@ -2312,6 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2075564951}
+  deathtextbox: {fileID: 0}
 --- !u!1001 &1353644635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2996,6 +2997,7 @@ MonoBehaviour:
   - {fileID: 856436712282740243, guid: 5d06d767d8638f843ab1972d72f39f5d, type: 3}
   - {fileID: 5861032729321284577, guid: 04ff776d11b0aad418f8feed95b618f5, type: 3}
   - {fileID: 2915842794824481930, guid: f9163324a3e915f40856862b390b806a, type: 3}
+  - {fileID: 5795889853755846767, guid: 3f78126f5230ee54bbd187de2eda85e1, type: 3}
   Sprite: {fileID: 1126092087}
   priceText: {fileID: 458233416}
   posSprite: {fileID: 1034203377}
@@ -3044,7 +3046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4919bf5945e75a24181a61d11ec8093d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 1000
   growthRate: 50
   MoneyText: {fileID: 1040218196}
 --- !u!4 &2010061694
