@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Plant : Furniture
 {
-    public AudioClip audioClip;
+    public AudioClip water;
+    public AudioClip eat;
     private int phases;
     private bool watering;
 
@@ -18,10 +19,12 @@ public class Plant : Furniture
         if(phases == 1)
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = Phase1;
+            SoundManager.Instance.PlaySound(water);
         }
         else
         {
             gameObject.GetComponent<SpriteRenderer>().sprite = Phase2;
+            SoundManager.Instance.PlaySound(water);
         }
     }
 
@@ -39,6 +42,7 @@ public class Plant : Furniture
         if(watering && phases >= 2)
         {
             deathManager.PlantDeath();
+            SoundManager.Instance.PlaySound(eat);
         }
     }
 }
