@@ -100,7 +100,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r: 0
   l: 0
-  Price: 30
+  Price: 10
   length: 2
   qualities: 
   warningPrefab: {fileID: 0}
