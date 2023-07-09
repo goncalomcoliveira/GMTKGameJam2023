@@ -1504,7 +1504,7 @@ MonoBehaviour:
   track2Source: {fileID: 1178471991}
   effectsSource: {fileID: 1994151805}
   playFromStart: 1
-  fadeTracks: 1
+  fadeTracks: 0
   timeToFade: 0.25
 --- !u!1 &1495343634
 GameObject:

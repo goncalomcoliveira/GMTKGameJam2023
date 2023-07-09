@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Fan : Furniture
 {
+    public AudioClip audioClip;
+
     public override void Interact()
     {
         animator.SetBool("animate", true);

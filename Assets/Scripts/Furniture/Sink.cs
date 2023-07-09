@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Sink : Furniture
 {
+    public AudioClip audioClip;
     public override void Interact()
     {
         animator.SetBool("interact", true);

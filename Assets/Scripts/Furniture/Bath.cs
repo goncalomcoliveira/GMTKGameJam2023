@@ -5,6 +5,8 @@ using UnityEngine;
 public class Bath : Furniture
 {
     public GameObject ladder;
+    public AudioClip audioClip;
+
     public override void Interact()
     {
         animator.SetBool("animate", true);

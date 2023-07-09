@@ -7,6 +7,7 @@ public class EmptySpace : Furniture
     public Sprite BuildSquare;
     private bool inBuild;
     private GameObject inBuildFurniture;
+    public AudioClip audioClip;
     public override void TurnOff()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = null;
