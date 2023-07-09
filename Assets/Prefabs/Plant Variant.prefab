@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   r: 0
   l: 0
-  Price: 30
+  Price: 100
   length: 0
   qualities: 
   warningPrefab: {fileID: 7297062649092309868, guid: 0c44e435af328af4f913dfcc02bca20d, type: 3}

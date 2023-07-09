@@ -93,6 +93,8 @@ public class Character : MonoBehaviour
 
     public bool Interrupt(Warning warning)
     {
+        if (warning == null) return true;
+
         if (Notice(warning))
         {
             StopAllCoroutines();
