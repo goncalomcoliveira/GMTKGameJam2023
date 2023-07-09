@@ -132,5 +132,7 @@ MonoBehaviour:
   length: 0
   qualities: 0600000001000000
   warning: {fileID: 0}
+  actions:
+  - {fileID: 6979223611639567296, guid: 913671b9a7ff8e34080540dd8d57da14, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
