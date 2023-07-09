@@ -17,7 +17,13 @@ public class DeathManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Distract = new int[3];
+        Eletricity = new int[3];
+        Water = new int[3];
+        Temperature = new int[3];
+        TV = new bool[3];
+        Light = new bool[3];
+        Music = new bool[3];
     }
 
     // Update is called once per frame
