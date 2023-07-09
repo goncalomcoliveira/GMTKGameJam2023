@@ -18,11 +18,11 @@ public class Fridge : Furniture
 
     public override void TurnOff()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = open;
+        gameObject.GetComponent<SpriteRenderer>().sprite = closed;
     }
 
     public override void TurnOn()
     {
-        gameObject.GetComponent<SpriteRenderer>().sprite = closed;
+        gameObject.GetComponent<SpriteRenderer>().sprite = open;
     }
 }
