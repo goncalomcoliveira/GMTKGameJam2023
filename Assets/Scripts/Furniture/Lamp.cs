@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class Lamp : Furniture
 {
+    public override void Interact()
+    {
+        animator.SetBool("animate", true);
+    }
+
+    public override void Leave()
+    {
+        animator.SetBool("animate", false);
+    }
+
     public override void TurnOff()
     {
         animator.SetBool("animate", false);

@@ -141,4 +141,6 @@ public abstract class Furniture : MonoBehaviour
     {
         return room;
     }
+    public abstract void Interact();
+    public abstract void Leave();
 }
