@@ -8,6 +8,9 @@ public class Bath : Furniture
     private bool noLadder;
     public Sprite ladderSprite;
     private SpriteRenderer child;
+    public AudioClip bubbles;
+    public AudioClip death;
+
 
     public override void Interact()
     {
@@ -19,6 +22,7 @@ public class Bath : Furniture
         if (noLadder)
         {
             deathManager.BathDeath();
+            SoundManager.Instance.PlaySound(death);
         }
     }
 
@@ -38,5 +42,6 @@ public class Bath : Furniture
     {
         ladder.sprite = null;
         noLadder = true;
+        SoundManager.Instance.PlaySound(bubbles);
     }
 }

@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour
     public Room room;
     public Money MoneyManager;
     private int money;
+    public AudioClip sound;
 
     public GameObject panel;
     public GameObject[] FurnitureList;
@@ -98,6 +99,7 @@ public class Shop : MonoBehaviour
         money = MoneyManager.money;
         if(money >= FurnitureList[cont].GetComponent<Furniture>().Price)
         {
+            SoundManager.Instance.PlaySound(sound);
             inBuildFurniture = Instantiate(FurnitureList[cont]);
             inBuildFurniture.GetComponent<Transform>().position = new Vector3(100, 100, 0);
             MoneyManager.Subtract(FurnitureList[cont].GetComponent<Furniture>().Price);

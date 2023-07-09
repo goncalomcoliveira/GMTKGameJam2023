@@ -192,6 +192,7 @@ MonoBehaviour:
   - {fileID: 5375592833371348473, guid: cb3ec7c108c6a834aa91b34a81c16963, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
-  audioClip: {fileID: 0}
+  water: {fileID: 8300000, guid: ff1a89ad45ebc5246b18f6ce732a2470, type: 3}
+  eat: {fileID: 8300000, guid: b0550edc14270a242b14e9ce44107091, type: 3}
   Phase1: {fileID: 21300000, guid: 09bebc7b38bf00243a5f2c4d7e3e6b65, type: 3}
   Phase2: {fileID: 21300000, guid: 0d8b0a2a6280db64fb7b3f1ffbf9c181, type: 3}
