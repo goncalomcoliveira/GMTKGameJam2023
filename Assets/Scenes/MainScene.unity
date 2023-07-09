@@ -3044,7 +3044,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4919bf5945e75a24181a61d11ec8093d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 0
+  money: 1000
   growthRate: 50
   MoneyText: {fileID: 1040218196}
 --- !u!4 &2010061694

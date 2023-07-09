@@ -143,7 +143,7 @@ MonoBehaviour:
   Price: 100
   length: 0
   qualities: 0100000003000000
-  warning: {fileID: 4525494812689912686, guid: 606ee2d5f7f678c4bb1544927b363c5e, type: 3}
+  warningPrefab: {fileID: 7058302439105310721, guid: 606ee2d5f7f678c4bb1544927b363c5e, type: 3}
   actions: []
   eletricCost: 0
   animator: {fileID: 5229262567102344145}

@@ -103,7 +103,7 @@ MonoBehaviour:
   Price: 50
   length: 0
   qualities: 0300000001000000
-  warning: {fileID: 9094066122094178901, guid: dd4fa3a5a947f864d9eecd435e89cf3b, type: 3}
+  warningPrefab: {fileID: 4146950370805581481, guid: dd4fa3a5a947f864d9eecd435e89cf3b, type: 3}
   actions:
   - {fileID: 564516323107825340, guid: 2a6acaeb23b9f974084c4d1741c8f88a, type: 3}
   eletricCost: 0

@@ -68,6 +68,7 @@ public class Character : MonoBehaviour
         {
             if (executing is Action)
             {
+                executing.Finish();
                 interrupted = executing;
             }
             else if (executing is Warning)
