@@ -195,6 +195,7 @@ MonoBehaviour:
   actions: []
   eletricCost: 0
   animator: {fileID: 5229262567102344145}
+  turnOn: {fileID: 8300000, guid: eeb2b9a11b4452c41b3684be204069da, type: 3}
 --- !u!95 &5229262567102344145 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
