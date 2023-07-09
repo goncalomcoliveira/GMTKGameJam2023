@@ -10,7 +10,7 @@ TagManager:
   - character
   - death
   - child
-  - diamond
+  - textbox
   layers:
   - Default
   - TransparentFX
