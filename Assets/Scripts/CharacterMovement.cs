@@ -31,8 +31,10 @@ public class CharacterMovement : MonoBehaviour
                 walking = true;
                 local = false;
 
-                int direction = (target.x - position.x) + (target.y - position.y) * 2;
-                anim.SetInteger("Direction", direction);
+                anim.SetBool("Up", target.x - position.x <= -1);
+                anim.SetBool("Down", target.x - position.x >= 1);
+                anim.SetBool("Left", target.y - position.y <= -1);
+                anim.SetBool("Right", target.y - position.y >= 1);
             }
         }
         else

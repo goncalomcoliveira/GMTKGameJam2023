@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 39b72a8b9bef3bd4a98dc09b9d1b7eb0, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -81,6 +85,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+--- !u!95 &1377992783024803245 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 777171879877858838}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5795889853755846767 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
@@ -107,4 +116,4 @@ MonoBehaviour:
   actions:
   - {fileID: 2572882903016721913, guid: bf49a12885212a94aaed48fa1cc667ba, type: 3}
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 1377992783024803245}
