@@ -10,7 +10,9 @@ public abstract class Furniture : MonoBehaviour
     public int Price;
     public int length;
     public List<Quality> qualities = new List<Quality>();
-    public Warning warning;
+    public GameObject warningPrefab;
+
+    private Warning warning;
     public List<GameObject> actions;
 
     private static Room room;
@@ -85,10 +87,16 @@ public abstract class Furniture : MonoBehaviour
         {
             Action action = Instantiate(obj).GetComponent<Action>();
             action.position = new Position((r==0 || r==10 ? r+1 : r), (l==room.ROOMSIZE-1 || l==6? l-1 : l));
+            action.furniture = this;
             ActionManager.AddAction(action);
         }
 
-        if (warning is object) warning.position = new Position((r == 0 || r == 10 ? r + 1 : r), (l == room.ROOMSIZE - 1 || l == 6 ? l - 1 : l));
+        if (warningPrefab != null)
+        {
+            warning = Instantiate(warningPrefab).GetComponent<Warning>();
+            warning.position = new Position((r == 0 || r == 10 ? r + 1 : r), (l == room.ROOMSIZE - 1 || l == 6 ? l - 1 : l));
+            warning.furniture = this;
+        }
     }
 
     public Shop GetShop()

@@ -35,7 +35,6 @@ public class CharacterMovement : MonoBehaviour
                 anim.SetBool("Down", target.x - position.x > 0);
                 anim.SetBool("Left", target.y - position.y < 0);
                 anim.SetBool("Right", target.y - position.y > 0);
-                Debug.Log("right:" + (target.y - position.y > 0));
             }
         }
         else
