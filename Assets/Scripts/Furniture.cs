@@ -136,16 +136,16 @@ public abstract class Furniture : MonoBehaviour
     }
 
     public void Activate()
-    {
-        TurnOn();
-        deathManager.Environment(qualities);
+    {   
         activate = true;
+        TurnOn();
+        deathManager.Environment(qualities, room.GetRoom(r,l));
     }
 
     public void Deactivate()
     {
         TurnOff();
-        deathManager.EnvironmentRemove(qualities);
+        deathManager.EnvironmentRemove(qualities, room.GetRoom(r, l));
         activate = false;
     }
     public Room GetRoom()
