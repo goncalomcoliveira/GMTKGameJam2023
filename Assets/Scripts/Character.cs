@@ -5,11 +5,14 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
     public string name;
+    public Skill skill;
+
     public List<Action> actions = new List<Action>();
     public PriorityQueue<Warning> warningQueue = new PriorityQueue<Warning>();
-    //public List<Skill> skills;
-    public Room room;
     public CharacterMovement movement;
+
+    [HideInInspector]
+    public Room room;
 
     private Interaction executing;
     private bool busy = false;
@@ -19,12 +22,11 @@ public class Character : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         room.Start();
 
         movement.position = new Position(7, 10);
         movement.transform.position = room.GetVector(movement.position);
-
-        Test();
     }
 
     // Update is called once per frame
@@ -55,13 +57,6 @@ public class Character : MonoBehaviour
         movement.local = false;       
     }
 
-    /*
-    public void GenerateSkills()
-    {
-
-    }
-    */
-
     private void Execute()
     {
         if (warningQueue.Count > 0)
@@ -79,8 +74,7 @@ public class Character : MonoBehaviour
         }
         else if (interrupted is null)
         {
-            int actionIndex = Random.Range(0, actions.Count);
-            executing = actions[actionIndex];
+            executing = ActionManager.GetRandomAction(actions);
         }
         else
         {
@@ -127,33 +121,5 @@ public class Character : MonoBehaviour
         bool vision = sameRoom || linearVisionVertical || linearVisionHorizontal;
 
         return sound || vision;
-    }
-
-    private void Test()
-    {
-        actions = new List<Action>
-        {
-            new Action
-            {
-                name = "A1",
-                position = new Position(15,14),
-                minTime = 5,
-                maxTime = 10
-            },
-            new Action
-            {
-                name = "A2",
-                position = new Position(5,4),
-                minTime = 5,
-                maxTime = 10
-            },
-            new Action
-            {
-                name = "A3",
-                position = new Position(2,12),
-                minTime = 5,
-                maxTime = 10
-            }
-        };
     }
 }

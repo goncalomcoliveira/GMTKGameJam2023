@@ -1,6 +1,5 @@
 using UnityEngine;
 
-[System.Serializable]
 public class Action : Interaction
 {
     public string name;
