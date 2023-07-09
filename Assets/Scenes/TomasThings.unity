@@ -181,7 +181,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -917,9 +917,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Ric
   skill: 0
-  actions: []
+  actions:
+  - {fileID: 3422565385637109514, guid: 9a07630a1f8449f4dab835fd64915292, type: 3}
+  - {fileID: 4694946653186888556, guid: 913671b9a7ff8e34080540dd8d57da14, type: 3}
   movement: {fileID: 844053591}
   room: {fileID: 0}
+  interacting: {fileID: 0}
 --- !u!4 &844053590
 Transform:
   m_ObjectHideFlags: 0
@@ -948,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 0}
-  moveSpeed: 0.025
+  moveSpeed: 0.5
   character: {fileID: 844053589}
   position:
     x: 1
@@ -1463,7 +1466,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 417916324}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1

@@ -11,6 +11,7 @@ public abstract class Furniture : MonoBehaviour
     public int length;
     public List<Quality> qualities = new List<Quality>();
     public Warning warning;
+    public List<GameObject> actions;
 
     private static Room room;
     private static Shop shop;
@@ -76,7 +77,15 @@ public abstract class Furniture : MonoBehaviour
             }
         }
         room.BuildModeOff();
+
+        foreach (GameObject obj in actions)
+        {
+            Action action = Instantiate(obj).GetComponent<Action>();
+            action.position = new Position((r==0 || r==10 ? r+1 : r), (l==room.ROOMSIZE-1 || l==6? l-1 : l));
+            ActionManager.AddAction(action);
+        }
     }
+
     public Shop GetShop()
     {
         if(shop == null)
@@ -93,14 +102,12 @@ public abstract class Furniture : MonoBehaviour
             Transform transform = gameObject.GetComponent<Transform>();
             panel.text = eletricCost.ToString();
             panel.GetComponent<RectTransform>().position = transform.position;
-            Debug.Log("entered");
         }
     }
     public void OnMouseExit()
     {
         canClick = false;
         panel.text = "";
-        Debug.Log("Exited");
     }
     public void OnMouseDown()
     {
