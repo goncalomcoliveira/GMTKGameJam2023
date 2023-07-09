@@ -815,17 +815,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d1973915a2d74f44c9aa1abbecb9a516, type: 3}
---- !u!114 &789690576 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5933449316502549717, guid: d1973915a2d74f44c9aa1abbecb9a516, type: 3}
-  m_PrefabInstance: {fileID: 1975761424}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &791097795
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,11 +853,9 @@ MonoBehaviour:
   - {fileID: 1467040757490077128, guid: 1010ea9648b8c074ea67e6570c55b436, type: 3}
   - {fileID: 1194062968280764869, guid: a0b87c68d393efd40996210a4aa10686, type: 3}
   Sprite: {fileID: 1209824953}
-  priceText: {fileID: 1793684718}
+  priceText: {fileID: 0}
   posSprite: {fileID: 1504059682}
-  pospriceText: {fileID: 789690576}
   preSprite: {fileID: 488179219}
-  prepriceText: {fileID: 1022774137}
 --- !u!4 &791097797
 Transform:
   m_ObjectHideFlags: 0
@@ -953,6 +940,7 @@ MonoBehaviour:
   sprite: {fileID: 0}
   moveSpeed: 0.5
   character: {fileID: 844053589}
+  anim: {fileID: 0}
   position:
     x: 1
     y: 1
@@ -1149,17 +1137,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 982004420}
   m_CullTransparentMesh: 1
---- !u!114 &1022774137 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5933449316502549717, guid: d1973915a2d74f44c9aa1abbecb9a516, type: 3}
-  m_PrefabInstance: {fileID: 778146895}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1070504392
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,17 +1819,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1793684718 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5933449316502549717, guid: d1973915a2d74f44c9aa1abbecb9a516, type: 3}
-  m_PrefabInstance: {fileID: 6506882946476254208}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1808076915
 GameObject:
   m_ObjectHideFlags: 0

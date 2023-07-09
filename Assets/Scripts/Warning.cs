@@ -8,6 +8,7 @@ public class Warning : Interaction, IComparable
     public int time;
     public int priority;
     public int soundRadius;
+    [HideInInspector]
     public int roomNumber;
 
     public override int Execute()
