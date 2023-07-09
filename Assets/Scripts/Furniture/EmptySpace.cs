@@ -24,10 +24,14 @@ public class EmptySpace : Furniture
 
     public void OnMouseDown()
     {
-        if (inBuild)
+        if (GetRoom().GetInBuild())
         {
             float x = gameObject.transform.position.x;
             float y = gameObject.transform.position.y;
+            if(inBuildFurniture == null)
+            {
+                inBuildFurniture = GetShop().GetInBuildFurniture();
+            }
             inBuildFurniture.GetComponent<Furniture>().Build(x, y, r, l);
         }
     }

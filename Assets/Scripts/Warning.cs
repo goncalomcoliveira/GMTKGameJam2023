@@ -7,7 +7,6 @@ public class Warning : Interaction, IComparable
     public string name;
     public int time;
     public int priority;
-    public Furniture furniture;
     public int soundRadius;
     public int roomNumber;
 
@@ -21,7 +20,7 @@ public class Warning : Interaction, IComparable
 
     public override void Finish()
     {
-        furniture.TurnOff();
+        furniture.Deactivate();
     }
 
     public int CompareTo(object obj)

@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
 
     [HideInInspector]
     public Room room;
+    [HideInInspector]
+    public Furniture interacting;
 
     private Interaction executing;
     private bool busy = false;
@@ -39,6 +41,7 @@ public class Character : MonoBehaviour
         else if (!busy && movement.local)
         {
             busy = true;
+            interacting = executing.furniture;
             time = executing.Execute();
             StartCoroutine(wait());
         }
@@ -48,14 +51,15 @@ public class Character : MonoBehaviour
     {
         while (--time > 0)
         {
-            Debug.Log(time);
+            //Debug.Log(time);
             yield return new WaitForSeconds(1);
         }
 
         executing.Finish();
         busy = false;
         executing = null;
-        movement.local = false;       
+        movement.local = false;
+        interacting = null;
     }
 
     private void Execute()
@@ -119,8 +123,6 @@ public class Character : MonoBehaviour
             if (!linearVisionHorizontal) break;
             linearVisionHorizontal = room.Matrix[movement.position.x, i] is not Wall;
         }
-
-        Debug.Log("sound: " + sound + " sameRoom:" + sameRoom + " linearVisionVertical:" + linearVisionVertical + " linearVisionHorizontal:" + linearVisionHorizontal);
         bool vision = sameRoom || linearVisionVertical || linearVisionHorizontal;
 
         return sound || vision;

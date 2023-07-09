@@ -15,16 +15,19 @@ public class ActionManager : MonoBehaviour
     public static Action GetRandomAction(List<Action> actions)
     {
         List<Action> result = new List<Action>();
-        foreach(Action action in actions)
+        foreach(Action actionAvail in avail)
         {
-            if (avail.Contains(action)) result.Add(action);
+            foreach(Action action in actions) {
+                if (action.Equals(actionAvail)) result.Add(actionAvail);
+            }
         }
 
-        return result[Random.Range(0, result.Count - 1)];
+        return result[Random.Range(0, result.Count)];
     }
 
     public static void AddAction(Action action)
     {
         avail.Add(action);
+        Debug.Log("Added to pos: " + action.position);
     }
 }

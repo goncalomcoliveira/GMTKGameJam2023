@@ -11,11 +11,13 @@ public abstract class Furniture : MonoBehaviour
     public int length;
     public List<Quality> qualities = new List<Quality>();
     public Warning warning;
+    public List<GameObject> actions;
 
     private static Room room;
     private static Shop shop;
     private static Character character;
     private static TMP_Text panel;
+    private static DeathManager deathManager;
     private bool canClick;
     private bool activate;
     public int eletricCost;
@@ -32,6 +34,7 @@ public abstract class Furniture : MonoBehaviour
         room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0].GetComponent<TMP_Text>();
+        deathManager = GameObject.FindGameObjectsWithTag("death")[0].GetComponent<DeathManager>();
     }
 
     public void Update()
@@ -76,7 +79,15 @@ public abstract class Furniture : MonoBehaviour
             }
         }
         room.BuildModeOff();
+
+        foreach (GameObject obj in actions)
+        {
+            Action action = Instantiate(obj).GetComponent<Action>();
+            action.position = new Position((r==0 || r==10 ? r+1 : r), (l==room.ROOMSIZE-1 || l==6? l-1 : l));
+            ActionManager.AddAction(action);
+        }
     }
+
     public Shop GetShop()
     {
         if(shop == null)
@@ -93,14 +104,12 @@ public abstract class Furniture : MonoBehaviour
             Transform transform = gameObject.GetComponent<Transform>();
             panel.text = eletricCost.ToString();
             panel.GetComponent<RectTransform>().position = transform.position;
-            Debug.Log("entered");
         }
     }
     public void OnMouseExit()
     {
         canClick = false;
         panel.text = "";
-        Debug.Log("Exited");
     }
     public void OnMouseDown()
     {
@@ -121,14 +130,18 @@ public abstract class Furniture : MonoBehaviour
     public void Activate()
     {
         TurnOn();
-        DeathManager.Environment(qualities);
+        deathManager.Environment(qualities);
         activate = true;
     }
 
     public void Deactivate()
     {
         TurnOff();
-        DeathManager.EnvironmentRemove(qualities);
+        deathManager.EnvironmentRemove(qualities);
         activate = false;
+    }
+    public Room GetRoom()
+    {
+        return room;
     }
 }

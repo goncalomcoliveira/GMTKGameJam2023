@@ -17,10 +17,8 @@ public class Shop : MonoBehaviour
     public TMP_Text priceText;
 
     public Image posSprite;
-    public TMP_Text pospriceText;
 
     public Image preSprite;
-    public TMP_Text prepriceText;
 
     private int cont;
     private int poscont;
@@ -85,13 +83,15 @@ public class Shop : MonoBehaviour
     public void Show()
     {
         preSprite.sprite = FurnitureList[precont].GetComponent<SpriteRenderer>().sprite;
-        prepriceText.text = FurnitureList[precont].GetComponent<Furniture>().Price.ToString();
 
         Sprite.sprite = FurnitureList[cont].GetComponent<SpriteRenderer>().sprite;
         priceText.text = FurnitureList[cont].GetComponent<Furniture>().Price.ToString();
 
         posSprite.sprite = FurnitureList[poscont].GetComponent<SpriteRenderer>().sprite;
-        pospriceText.text = FurnitureList[poscont].GetComponent<Furniture>().Price.ToString();
+
+        preSprite.SetNativeSize();
+        Sprite.SetNativeSize();
+        posSprite.SetNativeSize();
     }
     public void Buy()
     {
