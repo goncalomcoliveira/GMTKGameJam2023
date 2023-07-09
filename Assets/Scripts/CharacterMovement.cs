@@ -10,6 +10,8 @@ public class CharacterMovement : MonoBehaviour
     public Animator anim;
 
     [HideInInspector]
+    public bool stop = false;
+    [HideInInspector]
     public Position position = new Position(1, 1);
     [HideInInspector]
     public bool local = false;
@@ -21,6 +23,8 @@ public class CharacterMovement : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (stop) return;
+
         if (!walking)
         {
             if (queue.Count > 0)

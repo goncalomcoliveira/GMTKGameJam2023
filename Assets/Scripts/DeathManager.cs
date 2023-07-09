@@ -16,6 +16,7 @@ public class DeathManager : MonoBehaviour
     private int[] Music;
 
     public TMP_Text deathtextbox;
+    public Sprite dead;
 
     // Start is called before the first frame update
     void Start()
@@ -35,13 +36,13 @@ public class DeathManager : MonoBehaviour
     {
         int i = GetRoom() - 1;
 
-        Debug.Log("[ROOM " + i + "] Distract:" + Distract[i] + " Eletricity:" + Eletricity[i] + " Water:" + Water[i] + " Temperature:" + Temperature[i] + " TV:" + TV[i] + " Light:" + Light[i] + " Music:" + Music[i] + "");
+        //Debug.Log("[ROOM " + i + "] Distract:" + Distract[i] + " Eletricity:" + Eletricity[i] + " Water:" + Water[i] + " Temperature:" + Temperature[i] + " TV:" + TV[i] + " Light:" + Light[i] + " Music:" + Music[i] + "");
 
         if (Water[i] >= 1 && Distract[i] >= 1)
         {
             SlipperyDeath();
         }
-        if (Temperature[i] >= 1)
+        if (Temperature[i] >= 3)
         {
             TemperatureDeath();
         }
@@ -138,42 +139,45 @@ public class DeathManager : MonoBehaviour
 
     public void ElectricityDeath()
     {
-        deathtextbox.text = "There's too many things on!! Bzzzzzz Bzzzzzzz";
+        //deathtextbox.text = "There's too many things on!! Bzzzzzz Bzzzzzzz";
         Die();
     }
     public void SlipperyDeath()
     {
-        deathtextbox.text = "Oh no! I got distracted and didn't notice this very wet floor! AAAAAHHHHH";
+        //deathtextbox.text = "Oh no! I got distracted and didn't notice this very wet floor! AAAAAHHHHH";
         Die();
     }
     public void TemperatureDeath()
     {
-        deathtextbox.text = "So cold... Brrrrr... Goodbye world...";
+        //deathtextbox.text = "So cold... Brrrrr... Goodbye world...";
         Die();
     }
     public void TVDeath()
     {
-        deathtextbox.text = "So scary! My heart!";
+        //deathtextbox.text = "So scary! My heart!";
         Die();
     }
     public void PlantDeath()
     {
-        deathtextbox.text = "DON'T EAT ME! AHHHHH";
+        //deathtextbox.text = "DON'T EAT ME! AHHHHH";
         Die();
     }
     public void BathDeath()
     {
-        deathtextbox.text = "No stair? Guess I die";
+        //deathtextbox.text = "No stair? Guess I die";
         Die();
     }
     public void Die()
     {
-        ExampleCoroutine();
+        Debug.Log("Faleceu");
+        StartCoroutine(ExampleCoroutine());
+        characterMovement.stop = true;
+        GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>().sprite = dead;
+        GameObject.FindGameObjectsWithTag("child")[0].GetComponent<Animator>().enabled = false;
     }
     IEnumerator ExampleCoroutine()
     {
         yield return new WaitForSeconds(7);
         SceneManager.LoadScene("MainScene");
-
     }
 }
