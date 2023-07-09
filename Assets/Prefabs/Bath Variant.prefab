@@ -91,6 +91,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c3a82d7295e6c244d9df07fb63f2fc27, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -217,6 +221,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+--- !u!95 &4164397742406176792 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 2313835605411957667}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6369603477626314773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
@@ -248,5 +257,5 @@ MonoBehaviour:
   actions:
   - {fileID: 8825295655691747354, guid: c52fa2b2d598af645a70f2730489455a, type: 3}
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 4164397742406176792}
   ladder: {fileID: 0}

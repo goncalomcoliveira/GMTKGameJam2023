@@ -182,4 +182,9 @@ MonoBehaviour:
   warning: {fileID: 5072828350894674160, guid: cf104a9aa5553d649aa1a3ee93b9f939, type: 3}
   actions: []
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 6970362432881213428}
+--- !u!95 &6970362432881213428 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 8749719075525534799}
+  m_PrefabAsset: {fileID: 0}
