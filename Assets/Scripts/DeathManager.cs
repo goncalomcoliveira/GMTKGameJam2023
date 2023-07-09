@@ -50,6 +50,10 @@ public class DeathManager : MonoBehaviour
         {
             TVDeath();
         }
+        if (Eletricity[i] >= 5)
+        {
+            ElectricityDeath();
+        }
     }
 
     public void Environment(List<Quality> qualities, int room)
@@ -140,40 +144,41 @@ public class DeathManager : MonoBehaviour
     public void ElectricityDeath()
     {
         //deathtextbox.text = "There's too many things on!! Bzzzzzz Bzzzzzzz";
-        Die();
+        Die(false);
     }
     public void SlipperyDeath()
     {
         //deathtextbox.text = "Oh no! I got distracted and didn't notice this very wet floor! AAAAAHHHHH";
-        Die();
+        Die(false);
     }
     public void TemperatureDeath()
     {
         //deathtextbox.text = "So cold... Brrrrr... Goodbye world...";
-        Die();
+        Die(false);
     }
     public void TVDeath()
     {
         //deathtextbox.text = "So scary! My heart!";
-        Die();
+        Die(false);
     }
     public void PlantDeath()
     {
         //deathtextbox.text = "DON'T EAT ME! AHHHHH";
-        Die();
+        Die(false);
     }
     public void BathDeath()
     {
         //deathtextbox.text = "No stair? Guess I die";
-        Die();
+        Die(true);
     }
-    public void Die()
+    public void Die(bool bath)
     {
         Debug.Log("Faleceu");
-        StartCoroutine(ExampleCoroutine());
         characterMovement.stop = true;
-        GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>().sprite = dead;
+        if (bath) GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>().enabled = false;
+        else GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>().sprite = dead;
         GameObject.FindGameObjectsWithTag("child")[0].GetComponent<Animator>().enabled = false;
+        StartCoroutine(ExampleCoroutine());
     }
     IEnumerator ExampleCoroutine()
     {
