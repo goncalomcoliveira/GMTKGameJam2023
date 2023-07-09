@@ -17,6 +17,7 @@ public abstract class Furniture : MonoBehaviour
 
     private static Room room;
     private static Shop shop;
+    private bool walking = false;
     public static Character character;
     private static TMP_Text panel;
     public static DeathManager deathManager;
@@ -42,9 +43,9 @@ public abstract class Furniture : MonoBehaviour
 
     public void Update()
     {
-        if (activate)
+        if (activate && !walking)
         {
-            activate = character.Interrupt(warning);
+            walking = !character.Interrupt(warning);
         }   
     }
 
@@ -136,7 +137,10 @@ public abstract class Furniture : MonoBehaviour
     }
 
     public void Activate()
-    {   
+    {
+        if (activate) return;
+
+        walking = false;
         activate = true;
         TurnOn();
         deathManager.Environment(qualities, room.GetRoom(r,l));
@@ -144,9 +148,12 @@ public abstract class Furniture : MonoBehaviour
 
     public void Deactivate()
     {
+        Debug.Log("Deactive");
+
         TurnOff();
         deathManager.EnvironmentRemove(qualities, room.GetRoom(r, l));
         activate = false;
+        walking = false;
     }
     public Room GetRoom()
     {
