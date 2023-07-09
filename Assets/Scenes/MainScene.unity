@@ -1548,7 +1548,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.size
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.data[1]
@@ -1577,7 +1577,7 @@ PrefabInstance:
     - target: {fileID: 4112181539034795413, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: actions.Array.data[7]
       value: 
-      objectReference: {fileID: 2080919817878629436, guid: cb3ec7c108c6a834aa91b34a81c16963, type: 3}
+      objectReference: {fileID: 8402151796970610899, guid: c52fa2b2d598af645a70f2730489455a, type: 3}
     - target: {fileID: 7223187324980829372, guid: 829d083d19d81ba4baa5dd347800d50b, type: 3}
       propertyPath: anim
       value: 
@@ -2312,6 +2312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterMovement: {fileID: 2075564951}
+  deathtextbox: {fileID: 0}
 --- !u!1001 &1353644635
 PrefabInstance:
   m_ObjectHideFlags: 0
