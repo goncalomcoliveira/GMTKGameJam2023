@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class CustomCursor : MonoBehaviour
 {
+    public static CustomCursor Instance;
+
+    // enforce singleton design pattern
+    void Awake(){
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+            Destroy(gameObject);
+    }
+
     void Update()
     {
         Cursor.visible = false;
