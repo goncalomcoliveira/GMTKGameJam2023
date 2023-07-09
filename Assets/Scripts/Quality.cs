@@ -2,5 +2,9 @@ public enum Quality
 {
     Distract,
     Electricity,
-    Water
+    Water,
+    Temperature,
+    TV,
+    Light,
+    Music
 }

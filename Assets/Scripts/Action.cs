@@ -12,7 +12,6 @@ public class Action : Interaction
         //Change animator
 
         int time = Random.Range(minTime, maxTime);
-        Debug.Log("Executing action: " + name + " for " + time + " seconds");
         return time;
     }
 
