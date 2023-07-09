@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 
@@ -12,9 +11,9 @@ public class DeathManager : MonoBehaviour
     private int[] Eletricity;
     private int[] Water;
     private int[] Temperature;
-    private bool[] TV;
-    private bool[] Light;
-    private bool[] Music;
+    private int[] TV;
+    private int[] Light;
+    private int[] Music;
 
     public TMP_Text deathtextbox;
 
@@ -25,9 +24,9 @@ public class DeathManager : MonoBehaviour
         Eletricity = new int[3];
         Water = new int[3];
         Temperature = new int[3];
-        TV = new bool[3];
-        Light = new bool[3];
-        Music = new bool[3];
+        TV = new int[3];
+        Light = new int[3];
+        Music = new int[3];
         characterMovement = GameObject.FindGameObjectsWithTag("character")[0].GetComponent<CharacterMovement>();
     }
 
@@ -35,6 +34,9 @@ public class DeathManager : MonoBehaviour
     void Update()
     {
         int i = GetRoom() - 1;
+
+        Debug.Log("[ROOM " + i + "] Distract:" + Distract[i] + " Eletricity:" + Eletricity[i] + " Water:" + Water[i] + " Temperature:" + Temperature[i] + " TV:" + TV[i] + " Light:" + Light[i] + " Music:" + Music[i] + "");
+
         if (Water[i] >= 1 && Distract[i] >= 1)
         {
             SlipperyDeath();
@@ -43,21 +45,22 @@ public class DeathManager : MonoBehaviour
         {
             TemperatureDeath();
         }
-        if (TV[i] && Light[i] && Music[i])
+        if (TV[i] >= 1 && Light[i] >= 1 && Music[i] >= 1)
         {
             TVDeath();
         }
     }
 
-    public void Environment(List<Quality> qualities)
+    public void Environment(List<Quality> qualities, int room)
     {
-        int room = GetRoom();
         foreach (Quality quality in qualities)
         {
             switch (quality)
             {
                 case Quality.Distract:
-                    Distract[room - 1]++;
+                    Distract[0]++;
+                    Distract[1]++;
+                    Distract[2]++;
                     break;
 
                 case Quality.Electricity:
@@ -71,27 +74,28 @@ public class DeathManager : MonoBehaviour
                     Temperature[room - 1]++;
                     break;
                 case Quality.TV:
-                    TV[room - 1] = true;
+                    TV[room - 1]++;
                     break;
                 case Quality.Light:
-                    Light[room - 1] = true;
+                    Light[room - 1]++;
                     break;
                 case Quality.Music:
-                    Music[room - 1] = true;
+                    Music[room - 1]++;
                     break;
             }
         }
     }
 
-    public void EnvironmentRemove(List<Quality> qualities)
+    public void EnvironmentRemove(List<Quality> qualities, int room)
     {
-        int room = GetRoom();
         foreach (Quality quality in qualities)
         {
             switch (quality)
             {
                 case Quality.Distract:
-                    Distract[room - 1]--;
+                    Distract[0]--;
+                    Distract[1]--;
+                    Distract[2]--;
                     break;
 
                 case Quality.Electricity:
@@ -105,13 +109,13 @@ public class DeathManager : MonoBehaviour
                     Temperature[room - 1]--;
                     break;
                 case Quality.TV:
-                    TV[room - 1] = false;
+                    TV[room - 1]--;
                     break;
                 case Quality.Light:
-                    Light[room - 1] = false;
+                    Light[room - 1]--;
                     break;
                 case Quality.Music:
-                    Music[room - 1] = false;
+                    Music[room - 1]--;
                     break;
             }
         }
