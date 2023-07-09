@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e31570b98c334540a62f63e665be231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furniture: {fileID: 0}
+  furniture: {fileID: 689829267375220758, guid: 3f78126f5230ee54bbd187de2eda85e1, type: 3}
   position:
     x: 0
     y: 0

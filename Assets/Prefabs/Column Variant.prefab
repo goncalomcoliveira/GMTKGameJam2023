@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: c88661fa19c88834ca5f243fdbd2c78f, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -109,6 +113,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+--- !u!95 &2986974530106206440 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 3505297039752344403}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7639059059593188650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
@@ -131,8 +140,8 @@ MonoBehaviour:
   Price: 300
   length: 0
   qualities: 0600000001000000
-  warning: {fileID: 0}
+  warning: {fileID: 5800291231831519705, guid: bb5feed263a05f74aa39bce7eff81faa, type: 3}
   actions:
   - {fileID: 6979223611639567296, guid: 913671b9a7ff8e34080540dd8d57da14, type: 3}
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 2986974530106206440}

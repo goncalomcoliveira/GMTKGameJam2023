@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 421b9acc9c11eca48b6a13924ba274aa, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -69,7 +73,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Name
-      value: Fan
+      value: Fan Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_RootOrder
@@ -139,6 +143,12 @@ MonoBehaviour:
   Price: 100
   length: 0
   qualities: 0100000003000000
-  warning: {fileID: 0}
+  warning: {fileID: 4525494812689912686, guid: 606ee2d5f7f678c4bb1544927b363c5e, type: 3}
+  actions: []
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 5229262567102344145}
+--- !u!95 &5229262567102344145 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 5855979201942122602}
+  m_PrefabAsset: {fileID: 0}

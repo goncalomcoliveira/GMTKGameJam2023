@@ -35,6 +35,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: ecc2337d48db13d41a883eaa051f43de, type: 2}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Size.x
       value: 3
@@ -199,6 +203,13 @@ MonoBehaviour:
   Price: 100
   length: 2
   qualities: 0400000001000000
-  warning: {fileID: 0}
+  warning: {fileID: 820126822128429291, guid: 9dfc51be347567e41a714d79009f8299, type: 3}
+  actions:
+  - {fileID: 2091174937628031144, guid: a41174eaa21a6b7498726735c8163b52, type: 3}
   eletricCost: 0
-  animator: {fileID: 0}
+  animator: {fileID: 6281193220615565322}
+--- !u!95 &6281193220615565322 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1861830078727723963, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
+  m_PrefabInstance: {fileID: 5691929133934046129}
+  m_PrefabAsset: {fileID: 0}
