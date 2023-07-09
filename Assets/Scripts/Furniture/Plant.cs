@@ -5,23 +5,40 @@ using UnityEngine;
 public class Plant : Furniture
 {
     public AudioClip audioClip;
+    private int phases;
+    private bool watering;
+
+    public Sprite Phase1;
+    public Sprite Phase2;
+
     public override void Interact()
     {
-        throw new System.NotImplementedException();
+        phases++;
+        watering = true;
+        if(phases == 1)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = Phase1;
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = Phase2;
+        }
     }
 
     public override void Leave()
     {
-        throw new System.NotImplementedException();
+        watering = false;
     }
 
     public override void TurnOff()
     {
-        throw new System.NotImplementedException();
     }
 
     public override void TurnOn()
     {
-        throw new System.NotImplementedException();
+        if(watering && phases >= 2)
+        {
+            deathManager.PlantDeath();
+        }
     }
 }
