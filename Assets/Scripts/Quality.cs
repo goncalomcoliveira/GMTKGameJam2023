@@ -6,5 +6,6 @@ public enum Quality
     Temperature,
     TV,
     Light,
-    Music
+    Music,
+    Plant
 }

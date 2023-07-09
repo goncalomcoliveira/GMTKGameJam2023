@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bed : Furniture
+public class Fridge : Furniture
 {
     public override void TurnOff()
     {

@@ -8,6 +8,7 @@ TagManager:
   - room
   - panel
   - character
+  - death
   layers:
   - Default
   - TransparentFX
