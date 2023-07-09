@@ -18,6 +18,11 @@ public class Warning : Interaction, IComparable
         return time;
     }
 
+    public override void Finish()
+    {
+        furniture.Deactivate();
+    }
+
     public int CompareTo(object obj)
     {
         return priority.CompareTo(((Warning) obj).priority);

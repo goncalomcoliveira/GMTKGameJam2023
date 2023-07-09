@@ -15,6 +15,11 @@ public class Action : Interaction
         return time;
     }
 
+    public override void Finish()
+    {
+        
+    }
+
     public override bool Equals(object other)
     {
         return name.Equals(((Action)other).name);
