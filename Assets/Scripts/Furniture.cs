@@ -35,6 +35,7 @@ public abstract class Furniture : MonoBehaviour
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0].GetComponent<TMP_Text>();
         deathManager = GameObject.FindGameObjectsWithTag("death")[0].GetComponent<DeathManager>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     public void Update()
@@ -102,7 +103,7 @@ public abstract class Furniture : MonoBehaviour
         if(gameObject.GetComponent<Furniture>() is not EmptySpace && gameObject.GetComponent<Furniture>() is not Wall)
         {
             Transform transform = gameObject.GetComponent<Transform>();
-            panel.text = eletricCost.ToString();
+            panel.text = "";
             panel.GetComponent<RectTransform>().position = transform.position;
         }
     }
@@ -115,16 +116,12 @@ public abstract class Furniture : MonoBehaviour
     {
         if (canClick)
         {
-            ShowPanel();
+            Activate();
         }
     }
     public bool GetCanClick()
     {
         return canClick;
-    }
-    public void ShowPanel()
-    {
-
     }
 
     public void Activate()
