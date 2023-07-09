@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class Bath : Furniture
 {
+    public GameObject ladder;
+    public override void Interact()
+    {
+        animator.SetBool("animate", true);
+    }
+
+    public override void Leave()
+    {
+        animator.SetBool("animate", false);
+    }
+
     public override void TurnOff()
     {
-        throw new System.NotImplementedException();
+        ladder.SetActive(false);
     }
 
     public override void TurnOn()
     {
-        throw new System.NotImplementedException();
+        ladder.SetActive(true);
     }
 }
