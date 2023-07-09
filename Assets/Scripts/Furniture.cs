@@ -17,7 +17,7 @@ public abstract class Furniture : MonoBehaviour
 
     private static Room room;
     private static Shop shop;
-    private static Character character;
+    public static Character character;
     private static TMP_Text panel;
     private static DeathManager deathManager;
     private bool canClick;

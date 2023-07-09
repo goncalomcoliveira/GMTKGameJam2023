@@ -31,6 +31,10 @@ public class Money : MonoBehaviour
     {
         money += quantity;
         MoneyText.text = money.ToString();
+        if(money > 999)
+        {
+            money = 999;
+        }
     }
     public void Subtract(int quantity)
     {
