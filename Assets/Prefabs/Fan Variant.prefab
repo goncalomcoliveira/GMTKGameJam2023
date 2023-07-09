@@ -69,7 +69,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Name
-      value: Fan
+      value: Fan Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_RootOrder
@@ -139,6 +139,7 @@ MonoBehaviour:
   Price: 100
   length: 0
   qualities: 0100000003000000
-  warning: {fileID: 0}
+  warning: {fileID: 4525494812689912686, guid: 606ee2d5f7f678c4bb1544927b363c5e, type: 3}
+  actions: []
   eletricCost: 0
   animator: {fileID: 0}

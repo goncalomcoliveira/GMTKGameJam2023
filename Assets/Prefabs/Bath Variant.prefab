@@ -244,7 +244,9 @@ MonoBehaviour:
   Price: 40
   length: 2
   qualities: 
-  warning: {fileID: 0}
-  actions: []
+  warning: {fileID: 2693853125324585908, guid: 5e695adcf0d69784e92e26084e3f557b, type: 3}
+  actions:
+  - {fileID: 8825295655691747354, guid: c52fa2b2d598af645a70f2730489455a, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
+  ladder: {fileID: 0}

@@ -104,7 +104,8 @@ MonoBehaviour:
   length: 2
   qualities: 
   warning: {fileID: 0}
-  actions: []
+  actions:
+  - {fileID: 3649482842422225985, guid: 0005a6e3a3bf267459a5e1e5b894f0fe, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
   sleep: {fileID: 21300000, guid: ed7e9494b51f1c9488e753430da4b2cd, type: 3}

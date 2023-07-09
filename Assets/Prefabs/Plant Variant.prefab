@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Name
-      value: Plant
+      value: Plant Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_RootOrder
@@ -103,6 +103,8 @@ MonoBehaviour:
   Price: 30
   length: 0
   qualities: 
-  warning: {fileID: 0}
+  warning: {fileID: 7197071270764592451, guid: 0c44e435af328af4f913dfcc02bca20d, type: 3}
+  actions:
+  - {fileID: 5375592833371348473, guid: cb3ec7c108c6a834aa91b34a81c16963, type: 3}
   eletricCost: 0
   animator: {fileID: 0}

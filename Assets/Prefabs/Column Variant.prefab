@@ -131,7 +131,7 @@ MonoBehaviour:
   Price: 300
   length: 0
   qualities: 0600000001000000
-  warning: {fileID: 0}
+  warning: {fileID: 5800291231831519705, guid: bb5feed263a05f74aa39bce7eff81faa, type: 3}
   actions:
   - {fileID: 6979223611639567296, guid: 913671b9a7ff8e34080540dd8d57da14, type: 3}
   eletricCost: 0

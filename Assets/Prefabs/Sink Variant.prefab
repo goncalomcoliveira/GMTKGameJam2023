@@ -33,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Name
-      value: Sink
+      value: Sink Variant
       objectReference: {fileID: 0}
     - target: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_RootOrder
@@ -103,7 +103,8 @@ MonoBehaviour:
   Price: 40
   length: 0
   qualities: 02000000
-  warning: {fileID: 0}
-  actions: []
+  warning: {fileID: 1263361005011025639, guid: 1051d22741771cb40876bc28fdb21851, type: 3}
+  actions:
+  - {fileID: 2572882903016721913, guid: bf49a12885212a94aaed48fa1cc667ba, type: 3}
   eletricCost: 0
   animator: {fileID: 0}
