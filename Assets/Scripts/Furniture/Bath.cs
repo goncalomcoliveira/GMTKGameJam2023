@@ -5,29 +5,38 @@ using UnityEngine;
 public class Bath : Furniture
 {
     public SpriteRenderer ladder;
-    private bool inBath;
+    private bool noLadder;
     public Sprite ladderSprite;
+    private SpriteRenderer child;
+
     public override void Interact()
     {
         animator.SetBool("animate", true);
-        character.GetComponent<GameObject>().SetActive(false);
+
+        child = GameObject.FindGameObjectsWithTag("child")[0].GetComponent<SpriteRenderer>();
+        child.enabled = false;
+        
+        if (noLadder)
+        {
+            deathManager.BathDeath();
+        }
     }
 
     public override void Leave()
     {
         animator.SetBool("animate", false);
-        character.GetComponent<GameObject>().SetActive(true);
+        child.enabled = true;
     }
 
     public override void TurnOff()
     {
-        ladder.sprite = null;
-        inBath = false;
+        ladder.sprite = ladderSprite;
+        noLadder= false;
     }
 
     public override void TurnOn()
     {
-        ladder.sprite = ladderSprite;
-        inBath = true;
+        ladder.sprite = null;
+        noLadder = true;
     }
 }

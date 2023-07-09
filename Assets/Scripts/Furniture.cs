@@ -19,7 +19,7 @@ public abstract class Furniture : MonoBehaviour
     private static Shop shop;
     public static Character character;
     private static TMP_Text panel;
-    private static DeathManager deathManager;
+    public static DeathManager deathManager;
     private bool canClick;
     private bool activate;
     public int eletricCost;
