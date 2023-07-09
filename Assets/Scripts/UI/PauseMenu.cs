@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu Instance;
+
     public GameObject pauseMenu;
     public bool isPaused;
+
+    // enforce singleton design pattern
+    void Awake(){
+        if (Instance == null) {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else 
+            Destroy(gameObject);
+    }
 
     void Start()
     {
