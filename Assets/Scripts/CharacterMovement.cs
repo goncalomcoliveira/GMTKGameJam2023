@@ -31,10 +31,11 @@ public class CharacterMovement : MonoBehaviour
                 walking = true;
                 local = false;
 
-                anim.SetBool("Up", target.x - position.x <= -1);
-                anim.SetBool("Down", target.x - position.x >= 1);
-                anim.SetBool("Left", target.y - position.y <= -1);
-                anim.SetBool("Right", target.y - position.y >= 1);
+                anim.SetBool("Up", target.x - position.x < 0);
+                anim.SetBool("Down", target.x - position.x > 0);
+                anim.SetBool("Left", target.y - position.y < 0);
+                anim.SetBool("Right", target.y - position.y > 0);
+                Debug.Log("right:" + (target.y - position.y > 0));
             }
         }
         else
@@ -51,7 +52,11 @@ public class CharacterMovement : MonoBehaviour
                 if (queue.Count == 0)
                 {
                     local = true;
-                    anim.SetInteger("Direction", 0);
+
+                    anim.SetBool("Up", false);
+                    anim.SetBool("Down", false);
+                    anim.SetBool("Left", false);
+                    anim.SetBool("Right", false);
                 }
             }
         }

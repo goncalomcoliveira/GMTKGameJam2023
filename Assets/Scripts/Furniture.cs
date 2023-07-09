@@ -87,6 +87,8 @@ public abstract class Furniture : MonoBehaviour
             action.position = new Position((r==0 || r==10 ? r+1 : r), (l==room.ROOMSIZE-1 || l==6? l-1 : l));
             ActionManager.AddAction(action);
         }
+
+        if (warning is object) warning.position = new Position((r == 0 || r == 10 ? r + 1 : r), (l == room.ROOMSIZE - 1 || l == 6 ? l - 1 : l));
     }
 
     public Shop GetShop()
