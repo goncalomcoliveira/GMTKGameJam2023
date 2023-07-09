@@ -1,40 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3505297039752344403
+--- !u!1001 &860364133315413400
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.16666667
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 691215931404434186, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-      propertyPath: m_SpriteTilingProperty.adaptiveTilingThreshold
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Size.x
       value: 2
@@ -46,7 +18,7 @@ PrefabInstance:
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 8c1516ed7ac19b54390e3ac1e65e7f31, type: 3}
+      objectReference: {fileID: 21300000, guid: 6094b42fca5775b4c9e655c78e9b6bed, type: 3}
     - target: {fileID: 4530956349018900480, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
@@ -61,7 +33,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_Name
-      value: Column Variant
+      value: Fridge
       objectReference: {fileID: 0}
     - target: {fileID: 8680975962243427254, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
       propertyPath: m_RootOrder
@@ -109,28 +81,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
---- !u!1 &7639059059593188650 stripped
+--- !u!1 &5861032729321284577 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6531964007620978297, guid: e45c11b8d027f1448a8007ba77edf0b1, type: 3}
-  m_PrefabInstance: {fileID: 3505297039752344403}
+  m_PrefabInstance: {fileID: 860364133315413400}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3658707714957877428
+--- !u!114 &1972531474801452013
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7639059059593188650}
+  m_GameObject: {fileID: 5861032729321284577}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 848013beb1480504b8263829c677bfb6, type: 3}
+  m_Script: {fileID: 11500000, guid: 19cced69096a40d499708ebe411ce16a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   r: 0
   l: 0
-  Price: 300
+  Price: 50
   length: 0
-  qualities: 0600000001000000
+  qualities: 0300000001000000
   warning: {fileID: 0}
   eletricCost: 0
   animator: {fileID: 0}

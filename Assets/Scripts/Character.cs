@@ -123,8 +123,6 @@ public class Character : MonoBehaviour
             if (!linearVisionHorizontal) break;
             linearVisionHorizontal = room.Matrix[movement.position.x, i] is not Wall;
         }
-
-        Debug.Log("sound: " + sound + " sameRoom:" + sameRoom + " linearVisionVertical:" + linearVisionVertical + " linearVisionHorizontal:" + linearVisionHorizontal);
         bool vision = sameRoom || linearVisionVertical || linearVisionHorizontal;
 
         return sound || vision;

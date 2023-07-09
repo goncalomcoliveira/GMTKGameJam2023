@@ -17,6 +17,7 @@ public abstract class Furniture : MonoBehaviour
     private static Shop shop;
     private static Character character;
     private static TMP_Text panel;
+    private static DeathManager deathManager;
     private bool canClick;
     private bool activate;
     public int eletricCost;
@@ -33,6 +34,7 @@ public abstract class Furniture : MonoBehaviour
         room = GameObject.FindGameObjectsWithTag("room")[0].GetComponent<Room>();
         shop = GameObject.FindGameObjectsWithTag("shop")[0].GetComponent<Shop>();
         panel = GameObject.FindGameObjectsWithTag("panel")[0].GetComponent<TMP_Text>();
+        deathManager = GameObject.FindGameObjectsWithTag("death")[0].GetComponent<DeathManager>();
     }
 
     public void Update()
@@ -128,14 +130,18 @@ public abstract class Furniture : MonoBehaviour
     public void Activate()
     {
         TurnOn();
-        DeathManager.Environment(qualities);
+        deathManager.Environment(qualities);
         activate = true;
     }
 
     public void Deactivate()
     {
         TurnOff();
-        DeathManager.EnvironmentRemove(qualities);
+        deathManager.EnvironmentRemove(qualities);
         activate = false;
+    }
+    public Room GetRoom()
+    {
+        return room;
     }
 }

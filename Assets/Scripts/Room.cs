@@ -15,6 +15,8 @@ public class Room : MonoBehaviour
     public GameObject EmptySpace;
     public GameObject Wall;
 
+    private bool inBuild;
+
     public void Start()
     {
         BuildCoordenates();
@@ -139,17 +141,33 @@ public class Room : MonoBehaviour
 
     public void BuildModeOn(GameObject buildFurniture)
     {
+        inBuild = true;
         for (int r = 1; r < ROOMSIZE; r++)
         {
             if (Matrix[r, ROOMSIZE-1] is EmptySpace && r != ROOMSIZE-7)
             {
-                Matrix[r, ROOMSIZE-1].TurnOn();
+                if(r == ROOMSIZE - 1)
+                {
+                    Matrix[r, ROOMSIZE - 1].TurnOn();
+                }
+                else if (!(buildFurniture.GetComponent<Furniture>().length == 2 && !(Matrix[r+1, ROOMSIZE - 1] is EmptySpace)))
+                {
+                    Matrix[r, ROOMSIZE - 1].TurnOn();
+                }
             }
         }
         for (int l = 0; l < ROOMSIZE-1; l++)
         {
             if(Matrix[0,l] is EmptySpace && l != 6)
             {
+                if (l == 0)
+                {
+                    Matrix[0, l].TurnOn();
+                }
+                else if (!(buildFurniture.GetComponent<Furniture>().length == 2 && !(Matrix[0, l-1] is EmptySpace)))
+                {
+                    Matrix[0, l].TurnOn();
+                }
                 Matrix[0, l].TurnOn();
             }
         }
@@ -157,14 +175,20 @@ public class Room : MonoBehaviour
         {
             if (Matrix[ROOMSIZE-7, l] is EmptySpace && l != 13)
             {
-                Matrix[ROOMSIZE-7, l].TurnOn();
+                if (!(buildFurniture.GetComponent<Furniture>().length == 2 && !(Matrix[ROOMSIZE - 7, l-1] is EmptySpace)))
+                {
+                    Matrix[ROOMSIZE - 7, l].TurnOn();
+                }
             }
         }
         for (int r = 1; r < ROOMSIZE; r++)
         {
             if (Matrix[r, 6] is EmptySpace && r!=3)
             {
-                Matrix[r, 6].TurnOn();
+                if (!(buildFurniture.GetComponent<Furniture>().length == 2 && !(Matrix[r+1,6] is EmptySpace)))
+                {
+                    Matrix[r, 6].TurnOn();
+                }
             }
         }
         if(buildFurniture.GetComponent<Furniture>().length == 2)
@@ -183,6 +207,7 @@ public class Room : MonoBehaviour
     }
     public void BuildModeOff()
     {
+        inBuild = false;
         for (int r = 1; r < ROOMSIZE; r++)
         {
             if (Matrix[r, ROOMSIZE - 1] is EmptySpace && r != ROOMSIZE - 7)
@@ -218,5 +243,9 @@ public class Room : MonoBehaviour
         {
             Destroy(Matrix[r, l].gameObject);
         }
+    }
+    public bool GetInBuild()
+    {
+        return inBuild;
     }
 }

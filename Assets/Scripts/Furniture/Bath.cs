@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Fan : Furniture
+public class Bath : Furniture
 {
     public override void TurnOff()
     {
