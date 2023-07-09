@@ -25,5 +25,8 @@ public abstract class Interaction : MonoBehaviour
         movement.SetPath(path);
     }
 
-    public abstract void Finish();
+    public void Finish()
+    {
+        furniture.Deactivate();
+    }
 }
