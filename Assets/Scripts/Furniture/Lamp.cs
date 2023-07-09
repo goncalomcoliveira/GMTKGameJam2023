@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Lamp : Furniture
 {
+    public AudioClip audioClip;
     public override void Interact()
     {
         animator.SetBool("animate", true);

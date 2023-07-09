@@ -6,6 +6,7 @@ public class Fridge : Furniture
 {
     public Sprite open;
     public Sprite closed;
+    public AudioClip audioClip;
     public override void Interact()
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = open;
