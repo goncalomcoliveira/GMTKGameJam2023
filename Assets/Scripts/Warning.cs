@@ -7,7 +7,6 @@ public class Warning : Interaction, IComparable
     public string name;
     public int time;
     public int priority;
-    public Furniture furniture;
     public int soundRadius;
     public int roomNumber;
 
@@ -17,11 +16,6 @@ public class Warning : Interaction, IComparable
 
         Debug.Log("Interrupted by " + name + " for " + time + " seconds");
         return time;
-    }
-
-    public override void Finish()
-    {
-        furniture.TurnOff();
     }
 
     public int CompareTo(object obj)

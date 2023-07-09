@@ -10,12 +10,13 @@ public class Action : Interaction
     {
         //Change animator
 
-        int time = Random.Range(minTime, maxTime);
+        int time = Random.Range(minTime, maxTime + 1);
+        //Debug.Log("Executing action: " + name + " for " + time + " seconds");
         return time;
     }
 
-    public override void Finish()
+    public override bool Equals(object other)
     {
-
+        return name.Equals(((Action)other).name);
     }
 }

@@ -13,6 +13,8 @@ public class Character : MonoBehaviour
 
     [HideInInspector]
     public Room room;
+    [HideInInspector]
+    public Furniture interacting;
 
     private Interaction executing;
     private bool busy = false;
@@ -39,6 +41,7 @@ public class Character : MonoBehaviour
         else if (!busy && movement.local)
         {
             busy = true;
+            interacting = executing.furniture;
             time = executing.Execute();
             StartCoroutine(wait());
         }
@@ -48,13 +51,15 @@ public class Character : MonoBehaviour
     {
         while (--time > 0)
         {
+            //Debug.Log(time);
             yield return new WaitForSeconds(1);
         }
 
         executing.Finish();
         busy = false;
         executing = null;
-        movement.local = false;       
+        movement.local = false;
+        interacting = null;
     }
 
     private void Execute()
