@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
     public float moveSpeed;
     public Character character;
 
-    //public Animator anim;
+    public Animator anim;
 
     [HideInInspector]
     public Position position = new Position(1, 1);
@@ -30,6 +30,9 @@ public class CharacterMovement : MonoBehaviour
                 queue.RemoveAt(0);
                 walking = true;
                 local = false;
+
+                int direction = (target.x - position.x) + (target.y - position.y) * 2;
+                anim.SetInteger("Direction", direction);
             }
         }
         else
@@ -46,6 +49,7 @@ public class CharacterMovement : MonoBehaviour
                 if (queue.Count == 0)
                 {
                     local = true;
+                    anim.SetInteger("Direction", 0);
                 }
             }
         }
