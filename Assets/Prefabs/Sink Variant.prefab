@@ -200,8 +200,8 @@ MonoBehaviour:
   Price: 40
   length: 0
   qualities: 02000000
-  warningPrefab: {fileID: 0}
+  warningPrefab: {fileID: 7956379789572244537, guid: 1051d22741771cb40876bc28fdb21851, type: 3}
   actions:
-  - {fileID: 7956379789572244537, guid: 1051d22741771cb40876bc28fdb21851, type: 3}
+  - {fileID: 2572882903016721913, guid: bf49a12885212a94aaed48fa1cc667ba, type: 3}
   eletricCost: 0
   animator: {fileID: 1377992783024803245}

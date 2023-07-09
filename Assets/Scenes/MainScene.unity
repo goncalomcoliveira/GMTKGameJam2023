@@ -2997,6 +2997,7 @@ MonoBehaviour:
   - {fileID: 856436712282740243, guid: 5d06d767d8638f843ab1972d72f39f5d, type: 3}
   - {fileID: 5861032729321284577, guid: 04ff776d11b0aad418f8feed95b618f5, type: 3}
   - {fileID: 2915842794824481930, guid: f9163324a3e915f40856862b390b806a, type: 3}
+  - {fileID: 5795889853755846767, guid: 3f78126f5230ee54bbd187de2eda85e1, type: 3}
   Sprite: {fileID: 1126092087}
   priceText: {fileID: 458233416}
   posSprite: {fileID: 1034203377}
